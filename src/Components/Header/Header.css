@@ -1,0 +1,21 @@
+.Header-head {
+    background-color: black;
+    color: white;
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    text-align: center;
+}
+
+.Header-logo {
+    font-size: 30px;
+    font-family: 'Satisfy', cursive;
+}
+
+.Header-user {
+    position: absolute;
+    right: 30px;
+    top: 25%;
+}
