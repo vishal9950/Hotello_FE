@@ -1,6 +1,6 @@
 // const jwt = require('jsonwebtoken');
 const defaultState = {
-  authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MTk2Mjg2NDUsImVtYWlsIjoiYWRtaW5AaG90ZWxsby5jb20iLCJpYXQiOjE1MTk2MjUwNDV9.PPhnPw-PObg6pkmScpWXDv5C28aTwXLdEi0Kwaf-ZfQ',
+  authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MTk2MzQyNDYsImVtYWlsIjoiYWRtaW5AaG90ZWxsby5jb20iLCJpYXQiOjE1MTk2MzA2NDZ9.l1g1BW1ZVw6So59KT0KU8UIMAoX1_IM0nEv7Cq3J58o',
   header: ['First Name', 'Last Name', 'Email', 'Role', 'PhoneNumber', 'Suspended'],
   data: [],
 

@@ -11,7 +11,8 @@ import './Table.css';
 
 
 class Table extends React.Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
     fetch('/viewRegisteredUsers', {
       headers: {
         authorization: this.props.authorization,
@@ -21,19 +22,24 @@ class Table extends React.Component {
     });
   }
   render() {
-    return (
-      <div>
-        <TablePagination
-          title="Users"
-          headers={this.props.header}
-          data={this.props.data}
-          columns="firstName.lastName.email.role.phoneNumber.suspended"
-          perPageItemCount={5}
-          totalCount={this.props.data.length}
-          arrayOption={[['size', 'all', ' ']]}
-        />
-      </div>
-    );
+    const dataLength = this.props.data.length;
+    console.log(dataLength);
+    if (dataLength !== 0) {
+      return (
+        <div>
+          <TablePagination
+            title="Users"
+            headers={this.props.header}
+            data={this.props.data}
+            columns="firstName.lastName.email.role.phoneNumber.suspended"
+            perPageItemCount={3}
+            totalCount={dataLength}
+            arrayOption={[['size', 'all', ' ']]}
+          />
+        </div>
+      );
+    }
+    return null;
   }
 }
 const mapDispatchToProps = dispatch => ({
