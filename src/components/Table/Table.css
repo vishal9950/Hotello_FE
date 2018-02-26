@@ -1,0 +1,7 @@
+.active{
+    font-weight: bold;
+    background-color: yellow;
+}
+.pagination-status li{
+    display:inline;
+}

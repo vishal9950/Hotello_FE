@@ -20,7 +20,6 @@ class App extends React.Component {
   }
 
   render() {
-    // <ActionBar changeStyle={this.changeStyle} />
     return (
       <div>
         <Header />
