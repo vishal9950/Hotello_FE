@@ -27,7 +27,7 @@ class Table extends React.Component {
           title="Users"
           headers={this.props.header}
           data={this.props.data}
-          columns="firstName.lastName.email.role.phoneNumber.Suspended"
+          columns="firstName.lastName.email.role.phoneNumber.suspended"
           perPageItemCount={5}
           totalCount={this.props.data.length}
           arrayOption={[['size', 'all', ' ']]}
