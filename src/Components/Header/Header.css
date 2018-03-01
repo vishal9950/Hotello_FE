@@ -21,3 +21,50 @@
     right: 30px;
     top: 30%;
 }
+
+.Header-drop-opened {
+    position: absolute;
+    box-shadow: 1px 2px lightgray;
+    right: 40px;
+    padding: 10px;
+    top: 45px;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    background-color: white;
+    color: black;
+}
+
+.Header-drop-closed {
+    display: none;
+}
+
+#Header-user-icon {
+    color: white;
+}
+
+.Header-drop-usr-btn {
+    background-color: transparent;
+    border: 0px;
+}
+
+.Header-drop-usr-btn:focus {
+    outline: 0;
+}
+
+.Header-dropdown-line {
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+}
+
+.Header-dropdown-items {
+    padding: 5px;
+}
+
+.Header-dropdown-items:hover {
+    background-color: lightgray;
+}
+
+.Header-dd-items-btn {
+    width: 100%;
+}
