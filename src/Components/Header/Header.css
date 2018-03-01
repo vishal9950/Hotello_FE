@@ -1,21 +1,23 @@
 .Header-head {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     background-color: black;
     color: white;
-    position: fixed;
-    height: 50px;
+    position: fixed;height: 70px;
     width: 100%;
     left: 0px;
     top: 0px;
-    text-align: center;
 }
 
 .Header-logo {
-    font-size: 30px;
+    font-size: 50px;
     font-family: 'Satisfy', cursive;
 }
 
 .Header-user {
     position: absolute;
     right: 30px;
-    top: 25%;
+    top: 30%;
 }
