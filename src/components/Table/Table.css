@@ -1,7 +1,84 @@
 .active{
     font-weight: bold;
-    background-color: yellow;
+    background-color: #f2f2f2;
 }
 .pagination-status li{
     display:inline;
+    border: 1px solid black;
+    padding:5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.pagination-status{
+    padding-left:0;
+    padding-top:15px;
+}
+.table{
+    border:1px solid black;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+td, th{
+    border:1px solid black;
+    border-collapse: collapse;
+    border-spacing: 0;
+    padding:5px;
+}
+.react-pagination-table{
+    overflow-x:auto;
+    display:flex;    
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    /* align-items: center; */
+}
+tr:nth-child(even),th{
+    background-color: #f2f2f2;
+}
+.Edit{
+    border:0;
+}
+.EditEven{
+    background-color: #f2f2f2;
+    border:0;
+}
+.EditIcon{
+    height:50%;
+    width:50%;
+}
+.Delete{
+    border:0;
+}
+.DeleteEven{
+    background-color: #f2f2f2;
+    border:0;
+}
+.DeleteIcon{
+    height:100%;
+    width:100%;
+}
+.Suspend{
+    border:0;
+}
+.SuspendEven{
+    background-color: #f2f2f2;
+    border:0;
+}
+.SuspendIcon{
+    height:50%;
+    width:50%;
+}
+@media (max-width:768px){
+    .EditIcon{
+        height:110%;
+        width:100%;
+    }
+    .DeleteIcon{
+        height:100%;
+        width:100%;
+    }
+    .SuspendIcon{
+        height:60%;
+        width:60%;
+    }
 }
