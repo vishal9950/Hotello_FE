@@ -15,9 +15,17 @@ class Header extends React.Component {
     });
   }
 
+  closeDropDown = () => {
+    if (this.state.isDropdownOpen) {
+      this.setState({
+        isDropdownOpen: false,
+      });
+    }
+  }
+
   render() {
     return (
-      <div className="Header-head">
+      <div className="Header-head" onClick={() => { this.closeDropDown(); }}>
         <span className="Header-logo">Hotello</span>
         <span className="Header-user">
           <button className="Header-drop-usr-btn" onClick={() => { this.onClickHandler(); }}>

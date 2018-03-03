@@ -33,6 +33,7 @@
     font-family: 'Roboto', sans-serif;
     background-color: white;
     color: black;
+    z-index: +1;
 }
 
 .Header-drop-closed {

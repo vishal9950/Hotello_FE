@@ -1,0 +1,8 @@
+.ActionBar-outer {
+    position: relative;
+    top: 90px;
+    display: flex;
+    left: 25%;
+    width: 75%;
+    z-index: -1;
+}
