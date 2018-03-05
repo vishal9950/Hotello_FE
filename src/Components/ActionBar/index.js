@@ -11,9 +11,14 @@ class ActionBar extends React.Component {
     };
   }
 
+  w3Open = () => {
+    this.props.changeStyle({ display: 'block' });
+  }
+
   render() {
     return (
       <div className="ActionBar-outer">
+        <button className="w3-button w3-teal w3-xlarge w3-hide-large" onClick={this.w3Open}>&#9776;</button>
         <IconButton type="add" />
         <IconButton type="filter_list" />
         <InputText placeholder="Search..." />
