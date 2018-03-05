@@ -1,28 +1,25 @@
 import React from 'react';
-import './ActionBar.css';
 import IconButton from '../IconButton';
 import InputText from '../InputText';
+import './ActionBar.css';
 
 class ActionBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    };
+  openSidebar = () => {
+    this.props.changeStyle({ display: 'block' });
   }
-
   render() {
     return (
-      <div className="ActionBar-outer">
-        <IconButton type="add" />
-        <IconButton type="filter_list" />
-        <InputText placeholder="Search..." />
-        <span id="ActionBar-search"><IconButton type="search" /></span>
+      <div className="w3-main" style={{ marginLeft: '200px' }}>
+        <div className="foo">
+          <button className="w3-button w3-xlarge w3-hide-large" onClick={this.openSidebar}>&#9776;</button>
+          <IconButton type="add" />
+          <IconButton type="filter_list" />
+          <InputText placeholder="Search..." />
+          <span id="ActionBar-search"><IconButton type="search" /></span>
+        </div>
       </div>
     );
   }
 }
 
-
 export default ActionBar;
-
