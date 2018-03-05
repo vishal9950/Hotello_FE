@@ -1,9 +1,11 @@
 import React from 'react';
-import Header from './Components/Header';
-import ActionBar from './Components/ActionBar';
+import AdminProfile from './Components/AdminProfile';
+// import Header from './Components/Header';
+// import ActionBar from './Components/ActionBar';
 
+// { /* <div><Header /><ActionBar /></div> */ }
 const App = () => (
-  <div><Header /><ActionBar /></div>
+  <AdminProfile />
 );
 
 export default App;
