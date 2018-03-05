@@ -2,13 +2,13 @@
 import React from 'react';
 
 const defaultState = {
-  authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MTk5NzUwNjksImVtYWlsIjoiYWRtaW5AaG90ZWxsby5jb20iLCJpYXQiOjE1MTk5NzE0Njl9.S_M2yFptmwkLmK5UZTepd3qzIW_QTTaKrS7PnbkzXkY',
-  header: ['First Name', 'Last Name', 'Email', 'Role', 'PhoneNumber', 'Suspended', 'Edit', 'Delete', 'Suspend'],
-  data: [],
-
+  authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MjAyNTk4MDMsImVtYWlsIjoiYWRtaW5AaG90ZWxsby5jb20iLCJpYXQiOjE1MjAyNTYyMDN9.lmxgMf712LY4hTnEN9iq-LbIpYIhE_XuueKiXu6GT0A',
+  userHeader: ['First Name', 'Last Name', 'Email', 'Role', 'PhoneNumber', 'Suspended', 'Edit', 'Delete', 'Suspend'],
+  userData: [],
+  userColumns: 'firstName.lastName.email.role.phoneNumber.suspended.edit.delete.suspend',
 };
 
-const counter = (prevState = defaultState, action) => {
+const userReducer = (prevState = defaultState, action) => {
   switch (action.type) {
     case 'getUser': {
       const dataWithStrings = action.payload.users.usersRecords;
@@ -35,7 +35,7 @@ const counter = (prevState = defaultState, action) => {
       }
       return {
         ...prevState,
-        data: dataWithStrings,
+        userData: dataWithStrings,
       };
     }
     default: {
@@ -43,4 +43,4 @@ const counter = (prevState = defaultState, action) => {
     }
   }
 };
-export default counter;
+export default userReducer;

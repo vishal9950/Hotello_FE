@@ -23,6 +23,7 @@ td, th{
     border-collapse: collapse;
     border-spacing: 0;
     padding:5px;
+    text-align: center;
 }
 .react-pagination-table{
     overflow-x:auto;
@@ -68,6 +69,17 @@ tr:nth-child(even),th{
     height:50%;
     width:50%;
 }
+.Cancel{
+    border:0;
+}
+.CancelEven{
+    background-color: #f2f2f2;
+    border:0;
+}
+.CancelIcon{
+    height:50%;
+    width:50%;
+}
 @media (max-width:768px){
     .EditIcon{
         height:110%;
@@ -80,5 +92,9 @@ tr:nth-child(even),th{
     .SuspendIcon{
         height:60%;
         width:60%;
+    }
+    .CancelIcon{
+        height:80%;
+        width:80%;
     }
 }

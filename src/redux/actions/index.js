@@ -4,9 +4,9 @@ export const getUserData = users => ({
     users,
   },
 });
-// export const changeTitle = noteTitle => ({
-//   type: 'changeTitle',
-//   payload: {
-//     noteTitle,
-//   },
-// });
+export const getBookingData = bookings => ({
+  type: 'getBookings',
+  payload: {
+    bookings,
+  },
+});
