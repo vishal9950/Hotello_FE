@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './Components/Header';
 import Main from './Components/Main';
 import Sidebar from './Components/Sidebar';
-import MainHeader from './Components/MainHeader';
+import ActionBar from './Components/ActionBar';
 import './App.css';
 
 class App extends React.Component {
@@ -26,7 +26,7 @@ class App extends React.Component {
         <Header />
         <div style={{ marginTop: '70px' }}>
           <Sidebar sidebarStyle={this.state.sidebarStyle} changeStyle={this.changeStyle} />
-          <MainHeader changeStyle={this.changeStyle} />
+          <ActionBar changeStyle={this.changeStyle} />
           <Main />
         </div>
       </div>
