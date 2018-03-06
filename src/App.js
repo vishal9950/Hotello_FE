@@ -3,6 +3,11 @@ import Header from './Components/Header';
 import Main from './Components/Main';
 import Sidebar from './Components/Sidebar';
 import ActionBar from './Components/ActionBar';
+// import PropTypes from 'prop-types';
+// import { connect } from 'react-redux';
+// import Table from './components/Table/Table';
+// import { getUserData } from '../src/redux/actions';
+
 import './App.css';
 
 class App extends React.Component {
@@ -20,7 +25,6 @@ class App extends React.Component {
   }
 
   render() {
-    // <ActionBar changeStyle={this.changeStyle} />
     return (
       <div>
         <Header />
