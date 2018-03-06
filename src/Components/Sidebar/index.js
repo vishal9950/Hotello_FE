@@ -9,10 +9,10 @@ class Sidebar extends React.Component {
   }
   render() {
     return (
-      <div className="w3-sidebar w3-bar-block w3-collapse w3-animate-left" style={{ ...this.props.sidebarStyle, width: '200px' }}>
+      <div className="w3-sidebar w3-bar-block w3-collapse w3-animate-left" style={{ ...this.props.sidebarStyle, width: '200px', marginTop: '50px' }}>
         <button className="w3-bar-item w3-button w3-large w3-hide-large" onClick={this.closeSideBar}>Close &times;</button>
-        <Link to="/"><button className="linky" onClick={this.closeSideBar}>Manage Users</button></Link>
-        <Link to="/bookings"><button className="linky" onClick={this.closeSideBar}>Manage Booking</button></Link>
+        <Link to="/adminMain/users"><button className="linky" onClick={this.closeSideBar}>Manage Users</button></Link>
+        <Link to="/adminMain/bookings"><button className="linky" onClick={this.closeSideBar}>Manage Booking</button></Link>
       </div>
     );
   }

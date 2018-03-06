@@ -9,16 +9,17 @@ import './TableContainer.css';
 
 class TableContainer extends React.Component {
   componentDidMount() {
+    console.log(window.localStorage.getItem('token'));
     fetch('/viewRegisteredUsers', {
       headers: {
-        authorization: this.props.authorization,
+        authorization: window.localStorage.getItem('token'),
       },
     }).then(response => response.json()).then((responseObj) => {
       this.props.getUsers(responseObj);
     });
     fetch('/adminViewBookings', {
       headers: {
-        authorization: this.props.authorization,
+        authorization: window.localStorage.getItem('token'),
       },
     }).then(response => response.json()).then((responseObj) => {
       this.props.getBookings(responseObj);
@@ -30,7 +31,7 @@ class TableContainer extends React.Component {
         <Switch>
           <Route
             exact
-            path="/"
+            path="/adminMain/users"
             render={() => (
               <Table
                 header={this.props.userHeader}
@@ -41,7 +42,7 @@ class TableContainer extends React.Component {
         )}
           />
           <Route
-            path="/bookings"
+            path="/adminMain/bookings"
             render={() => (
               <Table
                 header={this.props.bookingHeader}

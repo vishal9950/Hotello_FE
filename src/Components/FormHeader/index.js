@@ -6,7 +6,7 @@ class LoginHeader extends React.Component {
   render() {
     return (
       <div className="form-header">
-        <span className="Header-logo">{this.props.text}</span>
+        <span className="Header-logo-login">{this.props.text}</span>
       </div>
     );
   }

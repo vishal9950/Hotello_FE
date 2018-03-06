@@ -10,7 +10,7 @@ import AdminLoginPage from './Components/AdminLoginPage';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Table from './components/Table/Table';
+import Table from './Components/Table/Table';
 import { getUserData } from '../src/redux/actions';
 
 import './App.css';

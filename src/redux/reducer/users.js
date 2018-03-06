@@ -2,7 +2,7 @@
 import React from 'react';
 
 const defaultState = {
-  authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MjAzNDAyMzIsImVtYWlsIjoiYWRtaW5AaG90ZWxsby5jb20iLCJpYXQiOjE1MjAzMzY2MzJ9.MUiZ1n8uLFh-Q4LVwPECeo8VPERbKv0wiEL02yuHA3c',
+  // authorization: '',
   userHeader: ['First Name', 'Last Name', 'Email', 'Role', 'PhoneNumber', 'Suspended', 'Edit', 'Delete', 'Suspend'],
   userData: [],
   userColumns: 'firstName.lastName.email.role.phoneNumber.suspended.edit.delete.suspend',
