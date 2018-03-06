@@ -5,6 +5,7 @@ import Login from '../Login';
 
 class AdminLoginPage extends React.Component {
   render() {
+    window.localStorage.setItem('token', null);
     return (
       <div className="admin-login-page">
         <Login />
