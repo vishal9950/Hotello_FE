@@ -4,8 +4,15 @@ import Header from './Components/Header';
 import Main from './Components/Main';
 import Sidebar from './Components/Sidebar';
 import ActionBar from './Components/ActionBar';
+
 import AdminMainPage from './Components/AdminMainPage';
 import AdminLoginPage from './Components/AdminLoginPage';
+
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import Table from './components/Table/Table';
+import { getUserData } from '../src/redux/actions';
+
 import './App.css';
 
 
