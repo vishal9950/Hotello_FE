@@ -1,0 +1,26 @@
+.login-body{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 1;
+    height:90%;
+    border-radius:10px;
+    background-color: white
+}
+
+.login-field{
+    width:80%;
+    height:20%;
+    border-width: 0px 0px 2px 0px;
+    font-size: x-large;
+    font-weight: 200;
+
+}
+
+.login-button{
+    background-color:black;
+    color:white;
+    letter-spacing: 3px;
+    border-radius: 5px
+}

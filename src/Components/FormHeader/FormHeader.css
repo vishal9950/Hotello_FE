@@ -1,0 +1,18 @@
+.form-header{
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    /* border-bottom:1px solid #cccccc; */
+    height:20%;
+    font-weight: 100;
+    width:100%;
+    background-color: black;
+    color:white
+}
+
+
+.Header-logo {
+    font-size: 7.5vh;
+    font-family: 'Satisfy', cursive;
+}
