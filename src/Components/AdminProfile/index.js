@@ -10,6 +10,10 @@ class AdminProfile extends React.Component {
     };
   }
 
+  onClickHandler1 = () => {
+    alert('Change Password Logic!');
+  }
+
   onClickHandler = () => {
     if (!this.state.isChanging) {
       this.setState({
@@ -46,6 +50,7 @@ class AdminProfile extends React.Component {
               <div className="APDetails-labelContent"><label className="APDetails-label">Old Password </label><input type="password" className="APDetails-input" /></div>
               <div className="APDetails-labelContent"><label className="APDetails-label">New Password </label><input type="password" className="APDetails-input" /></div>
               <div className="APDetails-labelContent"><label className="APDetails-label">Confirm Password </label><input type="password" className="APDetails-input" /></div>
+              <div className="APDetails-changeBtn"><button onClick={() => { this.onClickHandler1(); }}>Change Password</button></div>
             </div>
           </div>
         </div>
