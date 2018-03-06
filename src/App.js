@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+<<<<<<< HEAD
 import AdminMainPage from './Components/AdminMainPage';
 import AdminLoginPage from './Components/AdminLoginPage';
 
@@ -21,5 +22,19 @@ class App extends React.Component {
 }
 
 
+=======
+import AdminProfile from './Components/AdminProfile';
+import Header from './Components/Header';
+import ActionBar from './Components/ActionBar';
+
+const App = () => (
+  <div>
+    <Header /><ActionBar />
+    <Switch>
+      <Route exact path="/adminProfile" component={AdminProfile} />
+    </Switch>
+  </div>
+);
+>>>>>>> Add React router for 'Your Profile'
 
 export default App;

@@ -3,12 +3,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+    top: 120px;
 }
 
 .AdminProfile-head {
     position: relative;
     color: lightgray;
     font-size: 30px;
+    top: 80px;
     font-family: 'Oswald', sans-serif;
     border-bottom: 2px solid lightgray;
 }
@@ -66,9 +69,6 @@
     border: none;
     font-size: 15px;
     font-family: 'PT Sans Narrow', sans-serif;
-}
-
-.APDetails-pswd{
 }
 
 .APDetails-label {
