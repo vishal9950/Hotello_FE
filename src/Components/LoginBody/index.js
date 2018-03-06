@@ -39,9 +39,14 @@ class LoginBody extends React.Component {
       <div className="login-body" >
         <input type="email" value={this.state.username} className="login-field" placeholder="Email ID" onChange={event => this.setState({ username: event.target.value })} />
         <input type="password" value={this.state.password} className="login-field" placeholder="Password" onChange={event => this.setState({ password: event.target.value })} />
-        <Link to={(window.localStorage.getItem('token') !== 'null') ? '/adminMain/users' : '/login'} onClick={() => { this.login(); }}>
-          <button type="button" className="login-field login-button" >LOGIN</button>
-        </Link>
+
+        <button type="button" className="login-field login-button" >
+          <Link className="login-button-link" to={(window.localStorage.getItem('token') !== 'null') ? '/adminMain/users' : '/login'} onClick={() => { this.login(); }}>
+
+          LOGIN
+          </Link>
+        </button>
+
       </div>);
   }
 }
