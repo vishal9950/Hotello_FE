@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 class Header extends React.Component {
@@ -33,9 +34,11 @@ class Header extends React.Component {
           </button>
         </span>
         <span className={this.state.isDropdownOpen ? 'Header-drop-opened' : 'Header-drop-closed'}>
-          <div className="Header-dropdown-items">
+          <Link to="/adminProfile">
+            <div className="Header-dropdown-items">
             Your Profile
-          </div>
+            </div>
+          </Link>
           <div className="Header-dropdown-line" />
           <div className="Header-dropdown-items">
             Logout
