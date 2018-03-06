@@ -1,9 +1,13 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 import Header from './Components/Header';
 import Main from './Components/Main';
 import Sidebar from './Components/Sidebar';
 import ActionBar from './Components/ActionBar';
+import AdminMainPage from './Components/AdminMainPage';
+import AdminLoginPage from './Components/AdminLoginPage';
 import './App.css';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -20,15 +24,12 @@ class App extends React.Component {
   }
 
   render() {
-    // <ActionBar changeStyle={this.changeStyle} />
     return (
       <div>
-        <Header />
-        <div style={{ marginTop: '70px' }}>
-          <Sidebar sidebarStyle={this.state.sidebarStyle} changeStyle={this.changeStyle} />
-          <ActionBar changeStyle={this.changeStyle} />
-          <Main />
-        </div>
+        <Switch>
+          <Route path="/login" component={AdminLoginPage} />
+          <Route path="/adminMain" component={AdminMainPage} />
+        </Switch>
       </div>
     );
   }
