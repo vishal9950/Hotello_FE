@@ -10,6 +10,10 @@ class AdminProfile extends React.Component {
     };
   }
 
+  onClickHandler2 = () => {
+    alert('Change Profile Logic!');
+  }
+
   onClickHandler1 = () => {
     alert('Change Password Logic!');
   }
@@ -40,6 +44,7 @@ class AdminProfile extends React.Component {
             AV
           </div>
           <div className="AdminProfile-details">
+            <div className="APDetails-edit"><button className="APDetails-btn" onClick={() => { this.onClickHandler2(); }}>Edit Profile</button></div>
             <div className="APDetails-name">*First Name* *Last Name*</div>
             <div className="APDetails-phone">*Phone Number*</div>
             <div className="APDetails-email">*Email*</div>
