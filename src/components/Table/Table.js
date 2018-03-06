@@ -13,7 +13,7 @@ class Table extends React.Component {
           headers={this.props.header}
           data={this.props.data}
           columns={this.props.columns}
-          perPageItemCount={1}
+          perPageItemCount={this.props.itemsPerPage}
           totalCount={dataLength}
           arrayOption={[['size', 'all', ' ']]}
         /> : null}
@@ -27,5 +27,6 @@ Table.propTypes = {
   data: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   header: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   columns: PropTypes.string.isRequired,
+  itemsPerPage: PropTypes.number.isRequired,
 };
 

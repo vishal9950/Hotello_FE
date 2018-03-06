@@ -26,15 +26,17 @@ class TableContainer extends React.Component {
   }
   render() {
     return (
-      <div className="TableContainer" >
+      <div className="TableContainer">
         <Switch>
           <Route
-            path="/users"
+            exact
+            path="/"
             render={() => (
               <Table
                 header={this.props.userHeader}
                 data={this.props.userData}
                 columns={this.props.userColumns}
+                itemsPerPage={5}
               />
         )}
           />
@@ -45,6 +47,7 @@ class TableContainer extends React.Component {
                 header={this.props.bookingHeader}
                 data={this.props.bookingData}
                 columns={this.props.bookingColumns}
+                itemsPerPage={5}
               />
         )}
           />
