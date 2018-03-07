@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Header from '../Header';
 import Main from '../Main';
@@ -10,6 +11,7 @@ class AdminMainPage extends React.Component {
     super(props);
     this.state = {
       sidebarStyle: 'block',
+      isLoggedIn: !(window.localStorage.getItem('token') === 'null'),
     };
   }
 
@@ -20,16 +22,21 @@ class AdminMainPage extends React.Component {
       }
 
       render() {
-        return (
-          <div>
-            <Header />
-            <div style={{ marginTop: '70px' }}>
-              <Sidebar sidebarStyle={this.state.sidebarStyle} changeStyle={this.changeStyle} />
-              <ActionBar changeStyle={this.changeStyle} />
-              <Main />
+        console.log('admin:::::::;', window.localStorage.getItem('token'), this.state.isLoggedIn);
+        if (this.state.isLoggedIn) {
+          return (
+            <div>
+              <Header />
+              <div style={{ marginTop: '70px' }}>
+                <Sidebar sidebarStyle={this.state.sidebarStyle} changeStyle={this.changeStyle} />
+                <ActionBar changeStyle={this.changeStyle} />
+                <Main />
+              </div>
             </div>
-          </div>
-        );
+          );
+        }
+
+        return <Redirect to="/login" />;
       }
 }
 AdminMainPage.defaultProps = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './LoginBody.css';
 
 class LoginBody extends React.Component {
@@ -9,6 +9,7 @@ class LoginBody extends React.Component {
     this.state = {
       username: '',
       password: '',
+      isLoggedIn: false,
     };
   }
   login=() => {
@@ -20,6 +21,7 @@ class LoginBody extends React.Component {
       }),
     };
     fetch('/adminLogin', config).then(response => response.text()).then((token) => {
+      console.log(token);
       const check = token.split('.');
       console.log(check.length);
       if (check.length !== 3) {
@@ -31,18 +33,30 @@ class LoginBody extends React.Component {
       } else {
         window.localStorage.setItem('token', token);
         console.log('a:::::::', window.localStorage.getItem('token'));
+        this.setState({
+          username: '',
+          password: '',
+          isLoggedIn: true,
+        });
       }
     });
   }
   render() {
-    return (
-      <div className="login-body" >
-        <input type="email" value={this.state.username} className="login-field" placeholder="Email ID" onChange={event => this.setState({ username: event.target.value })} />
-        <input type="password" value={this.state.password} className="login-field" placeholder="Password" onChange={event => this.setState({ password: event.target.value })} />
-        <Link to={(window.localStorage.getItem('token') !== 'null') ? '/adminMain/users' : '/login'} onClick={() => { this.login(); }}>
-          <button type="button" className="login-field login-button" >LOGIN</button>
-        </Link>
-      </div>);
+    console.log(this.state.isLoggedIn);
+    if (!this.state.isLoggedIn) {
+      return (
+        <div className="login-body" >
+          <input type="email" required value={this.state.username} className="login-field" placeholder="Email ID" onChange={event => this.setState({ username: event.target.value })} />
+          <input type="password" required value={this.state.password} className="login-field" placeholder="Password" onChange={event => this.setState({ password: event.target.value })} />
+
+          <button type="button" className="login-field login-button" onClick={() => { this.login(); }}>
+          LOGIN
+          </button>
+
+        </div>);
+    }
+
+    return <Redirect to="/adminMain/users" />;
   }
 }
 LoginBody.defaultProps = {

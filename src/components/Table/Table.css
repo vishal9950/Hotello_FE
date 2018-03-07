@@ -1,6 +1,6 @@
 .active{
     font-weight: bold;
-    background-color: #f2f2f2;
+    background-color: white;
 }
 .pagination-status li{
     display:inline;
@@ -14,33 +14,57 @@
     padding-top:15px;
 }
 .table{
-    border:1px solid black;
+    /* border:4px solid red; */
     border-collapse: collapse;
     border-spacing: 0;
+    /* border-radius: 20px; */
+    
+    padding:30px
 }
-td, th{
-    border:1px solid black;
+
+
+td{
+    border:0px solid black;
     border-collapse: collapse;
     border-spacing: 0;
     padding:5px;
     text-align: center;
 }
+
+
 .react-pagination-table{
     overflow-x:auto;
     display:flex;    
     flex-direction: column;
     justify-content: center;
     align-content: center;
+    margin:10px;
+    box-shadow:0px 0px 10px;
+    
     /* align-items: center; */
 }
 tr:nth-child(even),th{
-    background-color: #f2f2f2;
+    background-color: white;
+    color:black
+}
+
+th{
+    border:1px solid white;
+    border-collapse: collapse;
+    border-spacing: 0;
+    padding:5px;
+    text-align: center;
+    background-color:black;
+    color:white
+}
+.table-header{
+    border:2px solid black;
 }
 .Edit{
     border:0;
 }
 .EditEven{
-    background-color: #f2f2f2;
+    background-color: white;
     border:0;
 }
 .EditIcon{
@@ -51,7 +75,7 @@ tr:nth-child(even),th{
     border:0;
 }
 .DeleteEven{
-    background-color: #f2f2f2;
+    background-color: white;
     border:0;
 }
 .DeleteIcon{
@@ -62,7 +86,7 @@ tr:nth-child(even),th{
     border:0;
 }
 .SuspendEven{
-    background-color: #f2f2f2;
+    background-color: white;
     border:0;
 }
 .SuspendIcon{
@@ -73,7 +97,8 @@ tr:nth-child(even),th{
     border:0;
 }
 .CancelEven{
-    background-color: #f2f2f2;
+    background-color: black;
+    color:white;
     border:0;
 }
 .CancelIcon{
