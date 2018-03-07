@@ -78,7 +78,6 @@ const mapStateToProps = state => ({
 });
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TableContainer));
 TableContainer.propTypes = {
-  authorization: PropTypes.string.isRequired,
   userData: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   getUsers: PropTypes.func.isRequired,
   userHeader: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,

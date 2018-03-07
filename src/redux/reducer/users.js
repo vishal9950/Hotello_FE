@@ -30,26 +30,27 @@ const userReducer = (prevState = defaultState, action) => {
           </button>);
         dataWithStrings[i].suspend = (
           <TableButton
-            // className={i % 2 === 0 ? 'Suspend' : 'SuspendEven'}
             class="Suspend"
             email={dataWithStrings[i].email}
-            imgClass={dataWithStrings[i].suspended === 'false' ? 'SuspendIcon' : 'SuspendDisabled'}
             imgSrc="/suspend2.png"
             alt="Suspend"
-          >
-            {/* onClick={() => alert(action.payload.fn)}
-           ><img className="SuspendIcon" src="/suspend2.png" alt="Suspend" /> */}
-          </TableButton>);
+          />);
       }
       return {
         ...prevState,
         userData: dataWithStrings,
       };
     }
-    case 'userSuspended': {
+    case 'userSuspend': {
+      const userData = prevState.userData.slice();
+      for (let i = 0; i < prevState.userData.length; i += 1) {
+        if (userData[i].email === action.payload.email) {
+          userData[i].suspended = 'true';
+        }
+      }
       return {
         ...prevState,
-        // userdata=
+        userData,
       };
     }
     default: {
