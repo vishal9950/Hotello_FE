@@ -14,7 +14,7 @@ class Table extends React.Component {
           data={this.props.data}
           columns={this.props.columns}
           perPageItemCount={this.props.itemsPerPage}
-          totalCount={dataLength}
+          totalCount={this.props.data.length}
           arrayOption={[['size', 'all', ' ']]}
         /> : null}
       </div>

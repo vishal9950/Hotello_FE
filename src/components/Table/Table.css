@@ -17,18 +17,25 @@
     /* border:4px solid red; */
     border-collapse: collapse;
     border-spacing: 0;
-    /* border-radius: 20px; */
-    
-    padding:30px
+
+}
+.table-header{
+    color: white;
+     background-color:black;
+     border: 1px solid black;
+     font-weight: 100;
 }
 
 
+
 td{
-    border:0px solid black;
+    border:1px solid black;
     border-collapse: collapse;
     border-spacing: 0;
     padding:5px;
     text-align: center;
+    font-weight: 100;
+
 }
 
 
@@ -43,13 +50,9 @@ td{
     
     /* align-items: center; */
 }
-tr:nth-child(even),th{
-    background-color: white;
-    color:black
-}
 
 th{
-    border:1px solid white;
+    border:1px solid black;
     border-collapse: collapse;
     border-spacing: 0;
     padding:5px;
@@ -57,27 +60,18 @@ th{
     background-color:black;
     color:white
 }
-.table-header{
-    border:2px solid black;
-}
 .Edit{
     border:0;
 }
-.EditEven{
-    background-color: white;
-    border:0;
-}
+
 .EditIcon{
-    height:50%;
-    width:50%;
+    height:60%;
+    width:60%;
 }
 .Delete{
     border:0;
 }
-.DeleteEven{
-    background-color: white;
-    border:0;
-}
+
 .DeleteIcon{
     height:100%;
     width:100%;
@@ -85,29 +79,26 @@ th{
 .Suspend{
     border:0;
 }
-.SuspendEven{
-    background-color: white;
-    border:0;
-}
 .SuspendIcon{
     height:50%;
     width:50%;
 }
+.SuspendDisabled{
+    height:50%;
+    width:50%;
+    opacity:0.5;
+}
 .Cancel{
     border:0;
 }
-.CancelEven{
-    background-color: black;
-    color:white;
-    border:0;
-}
+
 .CancelIcon{
     height:50%;
     width:50%;
 }
 @media (max-width:768px){
     .EditIcon{
-        height:110%;
+        height:100%;
         width:100%;
     }
     .DeleteIcon{

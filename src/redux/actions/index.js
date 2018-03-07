@@ -10,3 +10,15 @@ export const getBookingData = bookings => ({
     bookings,
   },
 });
+export const userSuspend = email => ({
+  type: 'userSuspend',
+  payload: {
+    email,
+  },
+});
+export const userDelete = email => ({
+  type: 'userDelete',
+  payload: {
+    email,
+  },
+});
