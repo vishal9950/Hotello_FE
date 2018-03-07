@@ -13,12 +13,13 @@ const userReducer = (prevState = defaultState, action) => {
   switch (action.type) {
     case 'getUser': {
       const dataWithStrings = action.payload.users.usersRecords;
+      console.log('The action object is: ', action.payload);
       for (let i = 0; i < dataWithStrings.length; i += 1) {
         dataWithStrings[i].suspended = action.payload.users.usersRecords[i].suspended.toString();
         dataWithStrings[i].edit = (
           <button
             className="Edit"
-            onClick={() => alert(`hi${i}`)}
+            onClick={() => { action.payload.users.changePage(1); }}
           ><img className="EditIcon" src="/edit.png" alt="Edit" />
           </button>);
         dataWithStrings[i].delete = (

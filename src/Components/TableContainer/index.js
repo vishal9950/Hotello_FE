@@ -15,7 +15,9 @@ class TableContainer extends React.Component {
         authorization: window.localStorage.getItem('token'),
       },
     }).then(response => response.json()).then((responseObj) => {
-      this.props.getUsers(responseObj);
+      this.props.getUsers({ ...responseObj,
+        changePage: this.props.changePage,
+      });
     });
     fetch('/adminViewBookings', {
       headers: {
@@ -39,8 +41,9 @@ class TableContainer extends React.Component {
                 data={this.props.userData}
                 columns={this.props.userColumns}
                 itemsPerPage={5}
+                changePage={this.props.changePage}
               />
-        )}
+            )}
           />
           <Route
             path="/adminMain/bookings"
@@ -51,7 +54,7 @@ class TableContainer extends React.Component {
                 columns={this.props.bookingColumns}
                 itemsPerPage={5}
               />
-        )}
+            )}
           />
         </Switch>
       </div>
@@ -87,4 +90,3 @@ TableContainer.propTypes = {
   bookingHeader: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   bookingColumns: PropTypes.string.isRequired,
 };
-

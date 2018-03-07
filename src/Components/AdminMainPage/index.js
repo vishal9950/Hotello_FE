@@ -12,6 +12,7 @@ class AdminMainPage extends React.Component {
     this.state = {
       sidebarStyle: 'block',
       isLoggedIn: !(window.localStorage.getItem('token') === 'null'),
+      page: 0,
     };
   }
 
@@ -21,19 +22,35 @@ class AdminMainPage extends React.Component {
         });
       }
 
+      changePage = (value) => {
+        this.setState({ page: value });
+      }
+
       render() {
         console.log('admin:::::::;', window.localStorage.getItem('token'), this.state.isLoggedIn);
         if (this.state.isLoggedIn) {
-          return (
-            <div>
-              <Header />
-              <div style={{ marginTop: '70px' }}>
-                <Sidebar sidebarStyle={this.state.sidebarStyle} changeStyle={this.changeStyle} />
-                <ActionBar changeStyle={this.changeStyle} />
-                <Main />
+          if (this.state.page === 0) {
+            return (
+              <div>
+                <Header />
+                <div style={{ marginTop: '70px' }}>
+                  <Sidebar sidebarStyle={this.state.sidebarStyle} changeStyle={this.changeStyle} />
+                  <ActionBar changeStyle={this.changeStyle} />
+                  <Main changePage={this.changePage} />
+                </div>
               </div>
-            </div>
-          );
+            );
+          } else if (this.state.page === 1) {
+            return (
+              <div>
+                <Header />
+                <div style={{ marginTop: '70px' }}>
+                  <Sidebar sidebarStyle={this.state.sidebarStyle} changeStyle={this.changeStyle} />
+                  <ActionBar changeStyle={this.changeStyle} />
+                </div>
+              </div>
+            );
+          }
         }
 
         return <Redirect to="/login" />;
