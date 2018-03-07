@@ -10,7 +10,6 @@ class App extends React.Component {
     super(props);
     this.state = {
       sidebarStyle: 'block',
-      activeLinkId: 1,
     };
   }
 
@@ -19,12 +18,6 @@ class App extends React.Component {
       sidebarStyle: newStyle,
     });
   }
-
-  // changeActiveLink = (linkId) => {
-  //   this.setState({
-  //     activeLinkId: linkId,
-  //   });
-  // }
 
   render() {
     return (

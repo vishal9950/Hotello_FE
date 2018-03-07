@@ -1,5 +1,13 @@
 .linky {
     width: 100%;
-    /* height: 70px; */
     padding: 20px;
+}
+.sidy {
+    width: 200px;
+    height: 125px;
+} 
+@media only screen and (max-width: 745px) {
+    .sidy {
+        height: 175px;
+    }
 }

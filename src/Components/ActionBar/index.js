@@ -11,7 +11,7 @@ class ActionBar extends React.Component {
     return (
       <div className="w3-main" style={{ marginLeft: '200px' }}>
         <div className="foo">
-          {<button className="w3-button w3-xlarge w3-hide-large" onClick={this.openSidebar}>&#9776;</button>}
+          <button className="w3-button w3-xlarge w3-hide-large" onClick={this.openSidebar}>&#9776;</button>
           <IconButton type="add" />
           <IconButton type="filter_list" />
           <InputText placeholder="Search..." />
