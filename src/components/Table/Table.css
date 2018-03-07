@@ -18,12 +18,20 @@
     border-collapse: collapse;
     border-spacing: 0;
 }
+.table-header{
+    color: white;
+     background-color:black;
+     border: 1px solid white;
+     font-weight: 100;
+}
 td, th{
     border:1px solid black;
     border-collapse: collapse;
     border-spacing: 0;
     padding:5px;
     text-align: center;
+    font-weight: 100;
+
 }
 .react-pagination-table{
     overflow-x:auto;
@@ -33,27 +41,27 @@ td, th{
     align-content: center;
     /* align-items: center; */
 }
-tr:nth-child(even),th{
+/* tr:nth-child(even),th{
     background-color: #f2f2f2;
-}
+} */
 .Edit{
     border:0;
 }
-.EditEven{
+/* .EditEven{
     background-color: #f2f2f2;
     border:0;
-}
+} */
 .EditIcon{
-    height:50%;
-    width:50%;
+    height:60%;
+    width:60%;
 }
 .Delete{
     border:0;
 }
-.DeleteEven{
+/* .DeleteEven{
     background-color: #f2f2f2;
     border:0;
-}
+} */
 .DeleteIcon{
     height:100%;
     width:100%;
@@ -61,28 +69,33 @@ tr:nth-child(even),th{
 .Suspend{
     border:0;
 }
-.SuspendEven{
+/* .SuspendEven{
     background-color: #f2f2f2;
     border:0;
-}
+} */
 .SuspendIcon{
     height:50%;
     width:50%;
 }
+.SuspendDisabled{
+    height:50%;
+    width:50%;
+    opacity:0.5;
+}
 .Cancel{
     border:0;
 }
-.CancelEven{
+/* .CancelEven{
     background-color: #f2f2f2;
     border:0;
-}
+} */
 .CancelIcon{
     height:50%;
     width:50%;
 }
 @media (max-width:768px){
     .EditIcon{
-        height:110%;
+        height:100%;
         width:100%;
     }
     .DeleteIcon{

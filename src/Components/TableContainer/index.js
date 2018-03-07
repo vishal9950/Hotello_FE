@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Switch, Route, withRouter } from 'react-router-dom';
-import Table from '../Table/Table';
+import Table from '../Table';
 import { getUserData, getBookingData } from '../../redux/actions';
 import './TableContainer.css';
 
@@ -25,6 +25,7 @@ class TableContainer extends React.Component {
       this.props.getBookings(responseObj);
     });
   }
+
   render() {
     return (
       <div className="TableContainer">
@@ -62,8 +63,8 @@ const mapDispatchToProps = dispatch => ({
   getUsers: (responseArray) => {
     dispatch(getUserData(responseArray));
   },
-  getBookings: (res) => {
-    dispatch(getBookingData(res));
+  getBookings: (res, fn) => {
+    dispatch(getBookingData(res, fn));
   },
 });
 const mapStateToProps = state => ({
