@@ -10,24 +10,30 @@ class App extends React.Component {
     super(props);
     this.state = {
       sidebarStyle: 'block',
+      activeLinkId: 1,
     };
   }
 
-  changeStyle = (newStyle) => {
+  changeSidebarStyle = (newStyle) => {
     this.setState({
       sidebarStyle: newStyle,
     });
   }
 
+  // changeActiveLink = (linkId) => {
+  //   this.setState({
+  //     activeLinkId: linkId,
+  //   });
+  // }
+
   render() {
-    // <ActionBar changeStyle={this.changeStyle} />
     return (
       <div>
         <Header />
         <div style={{ marginTop: '70px' }}>
-          <Sidebar sidebarStyle={this.state.sidebarStyle} changeStyle={this.changeStyle} />
-          <ActionBar changeStyle={this.changeStyle} />
-          <Main />
+          <Sidebar sidebarStyle={this.state.sidebarStyle} changeSidebarStyle={this.changeSidebarStyle} />
+          <ActionBar changeSidebarStyle={this.changeSidebarStyle} />
+          <Main changeActiveLink={this.changeActiveLink} />
         </div>
       </div>
     );
