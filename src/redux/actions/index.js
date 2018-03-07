@@ -16,3 +16,9 @@ export const userSuspend = email => ({
     email,
   },
 });
+export const userDelete = email => ({
+  type: 'userDelete',
+  payload: {
+    email,
+  },
+});

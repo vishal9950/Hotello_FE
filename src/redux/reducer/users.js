@@ -22,12 +22,18 @@ const userReducer = (prevState = defaultState, action) => {
           ><img className="EditIcon" src="/edit.png" alt="Edit" />
           </button>);
         dataWithStrings[i].delete = (
-          <button
-            // className={i % 2 === 0 ? 'Delete' : 'DeleteEven'}
-            className="Delete"
-            onClick={() => alert(`deleted${i}`)}
-          ><img className="DeleteIcon" src="/delete.png" alt="Delete" />
-          </button>);
+          <TableButton
+            class="Delete"
+            email={dataWithStrings[i].email}
+            imgSrc="/delete.png"
+            alt="Delete"
+          />);
+        // <button
+        //   // className={i % 2 === 0 ? 'Delete' : 'DeleteEven'}
+        //   className="Delete"
+        //   onClick={() => alert(`deleted${i}`)}
+        // ><img className="DeleteIcon" src="/delete.png" alt="Delete" />
+        // </button>);
         dataWithStrings[i].suspend = (
           <TableButton
             class="Suspend"
@@ -51,6 +57,20 @@ const userReducer = (prevState = defaultState, action) => {
       return {
         ...prevState,
         userData,
+      };
+    }
+    case 'userDelete': {
+      const userData = prevState.userData.slice();
+      const modifiedData = [];
+      for (let i = 0; i < prevState.userData.length; i += 1) {
+        if (userData[i].email !== action.payload.email) {
+          modifiedData.push(userData[i]);
+          // userData[i].suspended = 'true';
+        }
+      }
+      return {
+        ...prevState,
+        userData: modifiedData,
       };
     }
     default: {
