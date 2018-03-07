@@ -4,16 +4,8 @@ import AdminMainPage from './Components/AdminMainPage';
 import AdminLoginPage from './Components/AdminLoginPage';
 
 
-<<<<<<< HEAD
-  changeSidebarStyle = (newStyle) => {
-    this.setState({
-      sidebarStyle: newStyle,
-    });
-  }
-=======
 import './App.css';
 
->>>>>>> develop
 
 class App extends React.Component {
   render() {

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './Sidebar.css';
 
 class Sidebar extends React.Component {
@@ -23,18 +23,18 @@ class Sidebar extends React.Component {
         style={{ ...this.props.sidebarStyle }}
       >
         <button className="w3-button w3-xlarge w3-hide-large" onClick={this.closeSideBar}>&#9776;</button>
-        <Link to="/manageUsers" >
+        <Link to="/adminMain/users" >
           <button
-            className="linky w3-button w3-hover-green"
-            style={this.state.activeLink === 1 ? { backgroundColor: 'green' } : {}}
+            className="linky w3-button w3-hover-black"
+            style={this.state.activeLink === 1 ? { backgroundColor: 'black', color: 'white' } : {}}
             onClick={() => this.changeLinkStyle(1)}
           >Manage Users
           </button>
         </Link>
-        <Link to="/manageBookings" >
+        <Link to="/adminMain/bookings" >
           <button
-            className="linky w3-button w3-hover-green"
-            style={this.state.activeLink === 2 ? { backgroundColor: 'green' } : {}}
+            className="linky w3-button w3-hover-black"
+            style={this.state.activeLink === 2 ? { backgroundColor: 'black', color: 'white' } : {}}
             onClick={() => this.changeLinkStyle(2)}
           >Manage Bookings
           </button>
@@ -46,5 +46,6 @@ class Sidebar extends React.Component {
 
 export default Sidebar;
 Sidebar.propTypes = {
-  changeStyle: PropTypes.func.isRequired,
+  changeSidebarStyle: PropTypes.func.isRequired,
+  sidebarStyle: PropTypes.object.isRequired,
 };

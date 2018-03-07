@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import IconButton from '../IconButton';
 import InputText from '../InputText';
 import './ActionBar.css';
@@ -23,3 +24,8 @@ class ActionBar extends React.Component {
 }
 
 export default ActionBar;
+
+ActionBar.propTypes = {
+  changeSidebarStyle: PropTypes.func.isRequired,
+};
+

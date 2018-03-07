@@ -1,10 +1,12 @@
 .linky {
     width: 100%;
     padding: 20px;
+    outline: 0;
 }
 .sidy {
+    margin-top: 50px;
     width: 200px;
-    height: 125px;
+    height: 123px;
 }
 @media only screen and (max-width: 745px) {
     .sidy {
