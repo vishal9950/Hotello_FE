@@ -21,6 +21,7 @@ class AdminMainPage extends React.Component {
         });
       }
 
+
       render() {
         console.log('admin:::::::;', window.localStorage.getItem('token'), this.state.isLoggedIn);
         if (this.state.isLoggedIn) {

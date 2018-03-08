@@ -22,3 +22,16 @@ export const userDelete = email => ({
     email,
   },
 });
+export const updateUser = email => ({
+  type: 'updateUser',
+  payload: {
+    email,
+  },
+});
+
+export const modifyUser = obj => ({
+  type: 'modifyUser',
+  payload: {
+    obj,
+  },
+});

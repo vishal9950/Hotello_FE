@@ -3,7 +3,7 @@ import React from 'react';
 import './Main.css';
 import TableContainer from '../TableContainer';
 
-function Main() {
+function Main(props) {
   return (
 
     <div className="w3-main Main" >

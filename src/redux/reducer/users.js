@@ -7,20 +7,23 @@ const defaultState = {
   userHeader: ['First Name', 'Last Name', 'Email', 'Role', 'PhoneNumber', 'Suspended', 'Edit', 'Delete', 'Suspend'],
   userData: [],
   userColumns: 'firstName.lastName.email.role.phoneNumber.suspended.edit.delete.suspend',
+  currentUser: {},
 };
 
 const userReducer = (prevState = defaultState, action) => {
   switch (action.type) {
     case 'getUser': {
       const dataWithStrings = action.payload.users.usersRecords;
+      console.log('The action object is: ', action.payload);
       for (let i = 0; i < dataWithStrings.length; i += 1) {
         dataWithStrings[i].suspended = action.payload.users.usersRecords[i].suspended.toString();
         dataWithStrings[i].edit = (
-          <button
-            className="Edit"
-            onClick={() => alert(`hi${i}`)}
-          ><img className="EditIcon" src="/edit.png" alt="Edit" />
-          </button>);
+          <TableButton
+            class="Edit"
+            email={dataWithStrings[i].email}
+            imgSrc="/edit.png"
+            alt="Edit"
+          />);
         dataWithStrings[i].delete = (
           <TableButton
             class="Delete"
@@ -28,12 +31,6 @@ const userReducer = (prevState = defaultState, action) => {
             imgSrc="/delete.png"
             alt="Delete"
           />);
-        // <button
-        //   // className={i % 2 === 0 ? 'Delete' : 'DeleteEven'}
-        //   className="Delete"
-        //   onClick={() => alert(`deleted${i}`)}
-        // ><img className="DeleteIcon" src="/delete.png" alt="Delete" />
-        // </button>);
         dataWithStrings[i].suspend = (
           <TableButton
             class="Suspend"
@@ -71,6 +68,34 @@ const userReducer = (prevState = defaultState, action) => {
       return {
         ...prevState,
         userData: modifiedData,
+      };
+    }
+    case 'updateUser': {
+      let currUser = {};
+      prevState.userData.forEach((user) => {
+        if (user.email === action.payload.email) {
+          currUser = user;
+        }
+      });
+      console.log('Current user is: ', prevState.currentUser);
+      return {
+        ...prevState,
+        currentUser: currUser,
+      };
+    }
+    case 'modifyUser': {
+      const tempUsers = prevState.userData.slice();
+      tempUsers.forEach((user, i) => {
+        if (user.email === action.payload.obj.email) {
+          tempUsers[i].email = action.payload.obj.email;
+          tempUsers[i].firstName = action.payload.obj.firstName;
+          tempUsers[i].lastName = action.payload.obj.lastName;
+          tempUsers[i].phoneNumber = action.payload.obj.phoneNumber;
+        }
+      });
+      return {
+        ...prevState,
+        userData: tempUsers,
       };
     }
     default: {
