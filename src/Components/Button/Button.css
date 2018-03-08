@@ -1,0 +1,23 @@
+.submitButton {
+    color: #fff;
+    background: #ff4c4c;
+    border: none;
+    padding: .8em 3em;
+    border: 1px solid #ff4c4c;
+    width: 100%;
+    /* margin-right: 60px; */
+    outline: none;
+    font-size: 1em;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+	font-family: 'Montserrat', sans-serif;
+}
+.submitButton:hover {
+    background: transparent;
+    border: 1px solid #fff;
+}

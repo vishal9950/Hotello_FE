@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { modifyUser } from '../../redux/actions';
 import './Form.css';
 import Field from '../Field';
 import Button from '../Button';
@@ -42,36 +45,6 @@ class Form extends Component {
     console.log('FirstName is: ', this.state.firstName);
     return (
       <div>
-        <form className="form">
-          <Field name="email" placeholder="Email" type="email" value={this.state.email} update={this.updateEmail} />
-          <Field name="firstName" placeholder="Last Name" type="text" value={this.state.firstName} update={this.updateFirstName} />
-          <Field name="lastName" placeholder="Last Name" type="text" value={this.state.lastName} update={this.updateLastName} />
-          <Field name="phoneNumber" placeholder="Phone Number" type="number" value={this.state.phoneNumber} update={this.updatePhone} />
-          <Button
-            onClick={(data) => {
-              alert(localStorage.getItem('jwt'));
-              fetch('/adminUpdateDetails', {
-                method: 'post',
-                headers: {
-                  'Content-Type': 'application/json',
-                  Authorization: localStorage.getItem('jwt'),
-                },
-                body: JSON.stringify({
-                  firstName: this.state.firstName,
-                  lastName: this.state.lastName,
-                  email: this.state.email,
-                  phoneNumber: this.state.phoneNumber,
-                }),
-              }).then(resp => resp.json()).then((data) => {
-                console.log(data);
-              });
-            }}
-            firstName={this.state.firstName}
-            lastName={this.state.lastName}
-            email={this.state.email}
-            phoneNumber={this.state.phoneNumber}
-          />
-        </form>
         <div className="main-content-agile">
           <h2>Edit user details<i className="fa mail fa-envelope" /></h2>
           <div className="sub-main-w3">
@@ -91,7 +64,38 @@ class Form extends Component {
               <div className="field">
                 <Field name="phoneNumber" placeholder="Phone Number" type="tel" value={this.state.phoneNumber} update={this.updatePhone} />
               </div>
-              <input type="submit" value="Submit" />
+              <Link to="/adminMain/users" className="submitLink">
+                <Button
+                  onClick={(data) => {
+                    fetch('/adminUpdateDetails', {
+                      method: 'post',
+                      headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: localStorage.getItem('token'),
+                      },
+                      body: JSON.stringify({
+                        firstName: this.state.firstName,
+                        lastName: this.state.lastName,
+                        email: this.state.email,
+                        phoneNumber: this.state.phoneNumber,
+                      }),
+                    }).then(resp => resp.json()).then((data) => {
+                      // console.log(data);
+                      const obj = {
+                        firstName: this.state.firstName,
+                        lastName: this.state.lastName,
+                        email: this.state.email,
+                        phoneNumber: this.state.phoneNumber,
+                      };
+                      this.props.modifyUser(obj);
+                    });
+                  }}
+                  firstName={this.state.firstName}
+                  lastName={this.state.lastName}
+                  email={this.state.email}
+                  phoneNumber={this.state.phoneNumber}
+                />
+              </Link>
             </form>
           </div>
         </div>
@@ -101,5 +105,17 @@ class Form extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  email: state.users.currentUser.email,
+  firstName: state.users.currentUser.firstName,
+  lastName: state.users.currentUser.lastName,
+  phoneNumber: state.users.currentUser.phoneNumber,
+});
 
-export default Form;
+const mapDispatchToProps = dispatch => ({
+  modifyUser: (obj) => {
+    dispatch(modifyUser(obj));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form);

@@ -5,7 +5,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import Table from '../Table';
 import { getUserData, getBookingData } from '../../redux/actions';
 import './TableContainer.css';
-
+import Form from '../Form';
 
 class TableContainer extends React.Component {
   componentDidMount() {
@@ -15,9 +15,7 @@ class TableContainer extends React.Component {
         authorization: window.localStorage.getItem('token'),
       },
     }).then(response => response.json()).then((responseObj) => {
-      this.props.getUsers({ ...responseObj,
-        changePage: this.props.changePage,
-      });
+      this.props.getUsers(responseObj);
     });
     fetch('/adminViewBookings', {
       headers: {
@@ -54,6 +52,12 @@ class TableContainer extends React.Component {
                 columns={this.props.bookingColumns}
                 itemsPerPage={5}
               />
+            )}
+          />
+          <Route
+            path="/adminMain/edit"
+            render={() => (
+              <Form />
             )}
           />
         </Switch>
