@@ -15,30 +15,28 @@ class AdminMainPage extends React.Component {
     };
   }
 
-      changeStyle = (newStyle) => {
-        this.setState({
-          sidebarStyle: newStyle,
-        });
-      }
+  changeSidebarStyle = (newStyle) => {
+    this.setState({
+      sidebarStyle: newStyle,
+    });
+  }
+  render() {
+    console.log('admin:::::::;', window.localStorage.getItem('token'), this.state.isLoggedIn);
+    if (this.state.isLoggedIn) {
+      return (
+        <div>
+          <Header />
+          <div style={{ marginTop: '70px' }}>
+            <Sidebar sidebarStyle={this.state.sidebarStyle} changeSidebarStyle={this.changeSidebarStyle} />
+            <ActionBar changeSidebarStyle={this.changeSidebarStyle} />
+            <Main />
+          </div>
+        </div>
+      );
+    }
 
-
-      render() {
-        console.log('admin:::::::;', window.localStorage.getItem('token'), this.state.isLoggedIn);
-        if (this.state.isLoggedIn) {
-          return (
-            <div>
-              <Header />
-              <div style={{ marginTop: '70px' }}>
-                <Sidebar sidebarStyle={this.state.sidebarStyle} changeStyle={this.changeStyle} />
-                <ActionBar changeStyle={this.changeStyle} />
-                <Main />
-              </div>
-            </div>
-          );
-        }
-
-        return <Redirect to="/login" />;
-      }
+    return <Redirect to="/login" />;
+  }
 }
 AdminMainPage.defaultProps = {
 };
