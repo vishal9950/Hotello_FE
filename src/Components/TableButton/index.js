@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { userSuspend, userDelete, bookingCancel } from '../../redux/actions/index';
+import { Link } from 'react-router-dom';
+import { userSuspend, userDelete, updateUser, bookingCancel } from '../../redux/actions/index';
+// import { TablePagination } from 'react-pagination-table';
+// import './Table.css';
 
 
 class TableButton extends React.Component {
@@ -9,6 +12,7 @@ class TableButton extends React.Component {
       if (type === 'Suspend') this.suspendUser(email);
       if (type === 'Delete') this.deleteUser(email);
       if (type === 'Cancel') this.cancelBooking(email);
+      if (type === 'Edit') this.editUser(email);
     }
     suspendUser=(email) => {
       const confirmation = global.confirm(`Suspend ${email}?`);
@@ -58,6 +62,9 @@ class TableButton extends React.Component {
         });
       }
     }
+    editUser = (email) => {
+      this.props.updateUser(email);
+    }
     render() {
       let imgClass = '';
       if (this.props.class === 'Suspend') {
@@ -76,6 +83,17 @@ class TableButton extends React.Component {
             if (this.props.userData[i].status === 'cencelled') { imgClass = 'CancelDisabled'; }
           }
         }
+      }
+      if (this.props.class === 'Edit') {
+        return (
+          <Link to="/adminMain/edit">
+            <button
+              className={this.props.class}
+              onClick={() => this.manageUser(this.props.class, this.props.email)}
+            ><img className={imgClass} src={this.props.imgSrc} alt={this.props.alt} />
+            </button>
+          </Link>
+        );
       }
       return (
         <button
@@ -98,6 +116,9 @@ const mapDispatchToProps = dispatch => ({
   bookingCancelled: (bookingId) => {
     dispatch(bookingCancel(bookingId));
   },
+  updateUser: (email) => {
+    dispatch(updateUser(email));
+  },
 });
 const mapStateToProps = state => ({
   userData: state.users.userData,
@@ -115,5 +136,5 @@ TableButton.propTypes = {
   userDeleted: PropTypes.func.isRequired,
   disable: PropTypes.bool.isRequired,
   bookingCancelled: PropTypes.func.isRequired,
+  updateUser: PropTypes.func.isRequired,
 };
-

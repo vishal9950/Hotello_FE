@@ -28,3 +28,16 @@ export const bookingCancel = bookingId => ({
     bookingId,
   },
 });
+export const updateUser = email => ({
+  type: 'updateUser',
+  payload: {
+    email,
+  },
+});
+
+export const modifyUser = obj => ({
+  type: 'modifyUser',
+  payload: {
+    obj,
+  },
+});
