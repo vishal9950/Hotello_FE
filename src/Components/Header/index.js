@@ -1,9 +1,6 @@
 import React from 'react';
-<<<<<<< HEAD
 import { Redirect } from 'react-router-dom';
-=======
 import { Link } from 'react-router-dom';
->>>>>>> Add React router for 'Your Profile'
 import './Header.css';
 
 class Header extends React.Component {
@@ -42,7 +39,6 @@ class Header extends React.Component {
     });
   }
   render() {
-<<<<<<< HEAD
     if (this.state.isLoggedIn) {
       return (
         <div className="Header-head" onClick={() => { this.closeDropDown(); }}>
@@ -58,24 +54,6 @@ class Header extends React.Component {
             </div>
             <div className="Header-dropdown-line" />
             <div className="Header-dropdown-items" onClick={() => { this.doLogout(); }}>
-=======
-    return (
-      <div className="Header-head" onClick={() => { this.closeDropDown(); }}>
-        <span className="Header-logo">Hotello</span>
-        <span className="Header-user">
-          <button className="Header-drop-usr-btn" onClick={() => { this.onClickHandler(); }}>
-            <i id="Header-user-icon" className="material-icons">person</i>
-          </button>
-        </span>
-        <span className={this.state.isDropdownOpen ? 'Header-drop-opened' : 'Header-drop-closed'}>
-          <Link to="/adminProfile">
-            <div className="Header-dropdown-items">
-            Your Profile
-            </div>
-          </Link>
-          <div className="Header-dropdown-line" />
-          <div className="Header-dropdown-items">
->>>>>>> Add React router for 'Your Profile'
             Logout
             </div>
           </span>
