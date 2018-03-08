@@ -88,6 +88,11 @@ th{
     width:50%;
     opacity:0.5;
 }
+.CancelDisabled{
+    height:50%;
+    width:50%;
+    opacity:0.5;
+}
 .Cancel{
     border:0;
 }

@@ -22,3 +22,9 @@ export const userDelete = email => ({
     email,
   },
 });
+export const bookingCancel = bookingId => ({
+  type: 'bookingCancel',
+  payload: {
+    bookingId,
+  },
+});

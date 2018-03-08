@@ -1,5 +1,6 @@
 // const jwt = require('jsonwebtoken');
 import React from 'react';
+import TableButton from '../../Components/TableButton';
 
 const defaultState = {
   bookingHeader: ['User Email', 'Booking Id', 'Booking Date', 'Hotel Name', 'City', 'Check-in Date', 'Check-out Date', 'Amount', 'Number of rooms', 'Number of guests', 'Status', 'Cancel'],
@@ -16,17 +17,35 @@ const bookingReducer = (prevState = defaultState, action) => {
         // console.log(dataWithStrings[i].status);
         if (dataWithStrings[i].status === 'cancelled') cancelled = true;
         dataWithStrings[i].cancel = (
-          <button
+          <TableButton
             // className={!cancelled ? 'Cancel' : 'CancelDisable'}
-            className="Cancel"
-            disabled={cancelled}
-            onClick={() => alert(`hi${i}`)}
-          ><img className="CancelIcon" src="/cancel.png" alt="Cancel" />
-          </button>);
+            class="Cancel"
+            disable={cancelled}
+            email={dataWithStrings[i].bookingid}
+            imgSrc="./cancel.png"
+            alt="Cancel"
+          />);
+        // onClick={() => alert(`hi${i}`)}
+        // ><img className="CancelIcon" src="/cancel.png" alt="Cancel" />
+        // </TableButton>);
       }
       return {
         ...prevState,
         bookingData: dataWithStrings,
+      };
+    }
+    case 'bookingCancel': {
+      const bookingData = prevState.bookingData.slice();
+      const modifiedData = [];
+      for (let i = 0; i < prevState.bookingData.length; i += 1) {
+        if (bookingData[i].bookingId !== action.payload.bookingId) {
+          modifiedData.push(bookingData[i]);
+          // userData[i].suspended = 'true';
+        }
+      }
+      return {
+        ...prevState,
+        bookingData: modifiedData,
       };
     }
     default: {

@@ -27,6 +27,7 @@ const userReducer = (prevState = defaultState, action) => {
             email={dataWithStrings[i].email}
             imgSrc="/delete.png"
             alt="Delete"
+            disable={false}
           />);
         // <button
         //   // className={i % 2 === 0 ? 'Delete' : 'DeleteEven'}
@@ -40,6 +41,7 @@ const userReducer = (prevState = defaultState, action) => {
             email={dataWithStrings[i].email}
             imgSrc="/suspend2.png"
             alt="Suspend"
+            disable={false}
           />);
       }
       return {
