@@ -67,6 +67,7 @@ class Form extends Component {
               <Link to="/adminMain/users" className="submitLink">
                 <Button
                   onClick={(data) => {
+                    console.log('the phone number before fetch is: ', this.state.phoneNumber);
                     fetch('/adminUpdateDetails', {
                       method: 'post',
                       headers: {
@@ -105,12 +106,15 @@ class Form extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  email: state.users.currentUser.email,
-  firstName: state.users.currentUser.firstName,
-  lastName: state.users.currentUser.lastName,
-  phoneNumber: state.users.currentUser.phoneNumber,
-});
+const mapStateToProps = (state) => {
+  console.log('The phone number is: ', state.users.currentUser.phoneNumber);
+  return ({
+    email: state.users.currentUser.email,
+    firstName: state.users.currentUser.firstName,
+    lastName: state.users.currentUser.lastName,
+    phoneNumber: state.users.currentUser.phoneNumber,
+  });
+};
 
 const mapDispatchToProps = dispatch => ({
   modifyUser: (obj) => {
