@@ -5,7 +5,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import Table from '../Table';
 import { getUserData, getBookingData } from '../../redux/actions';
 import './TableContainer.css';
-
+import Form from '../Form';
 
 class TableContainer extends React.Component {
   componentDidMount() {
@@ -39,8 +39,9 @@ class TableContainer extends React.Component {
                 data={this.props.userData}
                 columns={this.props.userColumns}
                 itemsPerPage={5}
+                changePage={this.props.changePage}
               />
-        )}
+            )}
           />
           <Route
             path="/adminMain/bookings"
@@ -51,7 +52,13 @@ class TableContainer extends React.Component {
                 columns={this.props.bookingColumns}
                 itemsPerPage={5}
               />
-        )}
+            )}
+          />
+          <Route
+            path="/adminMain/edit"
+            render={() => (
+              <Form />
+            )}
           />
         </Switch>
       </div>
@@ -87,4 +94,3 @@ TableContainer.propTypes = {
   bookingHeader: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   bookingColumns: PropTypes.string.isRequired,
 };
-

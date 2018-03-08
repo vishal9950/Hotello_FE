@@ -20,7 +20,6 @@ class AdminMainPage extends React.Component {
       sidebarStyle: newStyle,
     });
   }
-
   render() {
     console.log('admin:::::::;', window.localStorage.getItem('token'), this.state.isLoggedIn);
     if (this.state.isLoggedIn) {
