@@ -122,7 +122,7 @@ const mapDispatchToProps = dispatch => ({
 });
 const mapStateToProps = state => ({
   userData: state.users.userData,
-  bookingdata: state.bookings.bookingData,
+  bookingData: state.bookings.bookingData,
 });
 export default connect(mapStateToProps, mapDispatchToProps)(TableButton);
 TableButton.propTypes = {

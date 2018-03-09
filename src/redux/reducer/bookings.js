@@ -12,6 +12,7 @@ const bookingReducer = (prevState = defaultState, action) => {
   switch (action.type) {
     case 'getBookings': {
       const dataWithStrings = action.payload.bookings;
+      console.log('THE BOOKING DATA IS: ', action.payload.bookings);
       for (let i = 0; i < dataWithStrings.length; i += 1) {
         let cancelled = false;
         // console.log(dataWithStrings[i].status);
@@ -22,7 +23,7 @@ const bookingReducer = (prevState = defaultState, action) => {
             class="Cancel"
             disable={cancelled}
             email={dataWithStrings[i].bookingid}
-            imgSrc="./cancel.png"
+            imgSrc="/cancel.png"
             alt="Cancel"
           />);
         // onClick={() => alert(`hi${i}`)}
