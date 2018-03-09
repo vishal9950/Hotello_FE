@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { updateAdminUser } from '../../redux/actions';
 import './LoginBody.css';
 
 class LoginBody extends React.Component {
@@ -21,9 +23,7 @@ class LoginBody extends React.Component {
       }),
     };
     fetch('/adminLogin', config).then(response => response.text()).then((token) => {
-      console.log(token);
       const check = token.split('.');
-      console.log(check.length);
       if (check.length !== 3) {
         window.localStorage.setItem('token', null);
         this.setState({
@@ -32,7 +32,14 @@ class LoginBody extends React.Component {
         });
       } else {
         window.localStorage.setItem('token', token);
-        console.log('a:::::::', window.localStorage.getItem('token'));
+        fetch('/userUpdateDetails', {
+          method: 'GET',
+          headers: {
+            authorization: window.localStorage.getItem('token'),
+          },
+        }).then(user => user.json()).then((data) => {
+          this.props.updateAdminUser(data);
+        });
         this.setState({
           username: '',
           password: '',
@@ -42,7 +49,6 @@ class LoginBody extends React.Component {
     });
   }
   render() {
-    console.log(this.state.isLoggedIn);
     if (!this.state.isLoggedIn) {
       return (
         <div className="login-body" >
@@ -62,5 +68,12 @@ class LoginBody extends React.Component {
 LoginBody.defaultProps = {
 };
 LoginBody.propTypes = {
+  updateAdminUser: PropTypes.func.isRequired,
 };
-export default LoginBody;
+const mapDispatchToProps = dispatch => ({
+  updateAdminUser: (email) => {
+    dispatch(updateAdminUser(email));
+  },
+
+});
+export default connect(null, mapDispatchToProps)(LoginBody);

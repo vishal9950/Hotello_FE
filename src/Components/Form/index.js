@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Link, Redirect } from 'react-router-dom';
 import { modifyUser } from '../../redux/actions';
 import './Form.css';
 import Field from '../Field';
 import Button from '../Button';
+import { withRouter } from 'react-router-dom';
+
 
 class Form extends Component {
   constructor(props) {
@@ -14,6 +17,7 @@ class Form extends Component {
       lastName: this.props.lastName,
       email: this.props.email,
       phoneNumber: this.props.phoneNumber,
+      formSubmissionState: false,
     };
   }
 
@@ -41,14 +45,20 @@ class Form extends Component {
     });
   }
 
+  submitForm = (e) => {
+    e.preventDefault();
+    this.setState({ formSubmissionState: true });
+  }
+
   render() {
     console.log('FirstName is: ', this.state.firstName);
+    const { formSubmissionState } = this.state;
     return (
       <div>
         <div className="main-content-agile">
           <h2>Edit user details<i className="fa mail fa-envelope" /></h2>
           <div className="sub-main-w3">
-            <form action="#" method="post">
+            <form onSubmit={this.submitForm}>
               <div className="field">
                 <i className="fa fa-user" />
                 <Field name="email" placeholder="Email" type="email" value={this.state.email} update={this.updateEmail} />
@@ -62,12 +72,10 @@ class Form extends Component {
                 <Field name="lastName" placeholder="Last Name" type="text" value={this.state.lastName} update={this.updateLastName} />
               </div>
               <div className="field">
-                <Field name="phoneNumber" placeholder="Phone Number" type="tel" value={this.state.phoneNumber} update={this.updatePhone} />
+                <Field name="phoneNumber" placeholder="Phone Number" type="text" pattern="[0-9]{10}" value={this.state.phoneNumber} update={this.updatePhone} />
               </div>
-              <Link to="/adminMain/users" className="submitLink">
-                <Button
-                  onClick={(data) => {
-                    console.log('the phone number before fetch is: ', this.state.phoneNumber);
+              <Button
+                onClick={() => {
                     fetch('/adminUpdateDetails', {
                       method: 'post',
                       headers: {
@@ -80,7 +88,7 @@ class Form extends Component {
                         email: this.state.email,
                         phoneNumber: this.state.phoneNumber,
                       }),
-                    }).then(resp => resp.json()).then((data) => {
+                    }).then(resp => resp.json()).then(() => {
                       // console.log(data);
                       const obj = {
                         firstName: this.state.firstName,
@@ -91,13 +99,15 @@ class Form extends Component {
                       this.props.modifyUser(obj);
                     });
                   }}
-                  firstName={this.state.firstName}
-                  lastName={this.state.lastName}
-                  email={this.state.email}
-                  phoneNumber={this.state.phoneNumber}
-                />
-              </Link>
+                firstName={this.state.firstName}
+                lastName={this.state.lastName}
+                email={this.state.email}
+                phoneNumber={this.state.phoneNumber}
+              />
             </form>
+            {formSubmissionState && (
+            <Redirect to="/adminMain/users" />
+            )}
           </div>
         </div>
       </div>
@@ -105,6 +115,15 @@ class Form extends Component {
     );
   }
 }
+
+
+Form.propTypes = {
+  firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  phoneNumber: PropTypes.string.isRequired,
+  modifyUser: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = (state) => {
   console.log('The phone number is: ', state.users.currentUser.phoneNumber);
@@ -122,4 +141,4 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Form);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Form));
