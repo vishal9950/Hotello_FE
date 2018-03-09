@@ -1,0 +1,90 @@
+.AdminProfile-outer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 120px;
+}
+
+.AdminProfile-head {
+    position: relative;
+    color: lightgray;
+    font-size: 30px;
+    top: 80px;
+    font-family: 'Oswald', sans-serif;
+    border-bottom: 2px solid lightgray;
+}
+
+.AdminProfile-thumb {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    border: 1px solid lightgray;
+    width: 150px;
+    height: 150px;
+    font-size: 80px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: gray;
+    margin-bottom: 20px;
+}
+
+.AdminProfile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.APDetails-name {
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 25px;
+}
+
+.APDetails-phone {
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 20px;
+}
+
+.APDetails-email {
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 20px;
+}
+
+.APDetails-boxShow {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid lightgray;
+}
+
+.APDetails-boxNoShow{
+    display: none;
+}
+
+.APDetails-btn {
+    outline: none;
+    background: transparent;
+    text-decoration: underline;
+    border: none;
+    font-size: 15px;
+    margin-bottom: 15px;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.APDetails-label {
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 20px;
+    padding-right: 5px;
+}
+
+.APDetails-labelContent {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.APDetails-changeBtn {
+    justify-content: center;
+    align-self: center;
+}

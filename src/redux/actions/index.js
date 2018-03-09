@@ -35,3 +35,13 @@ export const modifyUser = obj => ({
     obj,
   },
 });
+
+export const updateAdminUser = user => ({
+  type: 'updateAdminUser',
+  payload: {
+    user,
+  },
+});
+export const copyAdminUser = () => ({
+  type: 'copyAdminUser',
+});

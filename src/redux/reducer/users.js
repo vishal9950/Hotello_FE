@@ -1,4 +1,3 @@
-// const jwt = require('jsonwebtoken');
 import React from 'react';
 import TableButton from '../../Components/TableButton';
 
@@ -8,13 +7,14 @@ const defaultState = {
   userData: [],
   userColumns: 'firstName.lastName.email.role.phoneNumber.suspended.edit.delete.suspend',
   currentUser: {},
+  currentAdminUser: {},
 };
+
 
 const userReducer = (prevState = defaultState, action) => {
   switch (action.type) {
     case 'getUser': {
       const dataWithStrings = action.payload.users.usersRecords;
-      console.log('The action object is: ', action.payload);
       for (let i = 0; i < dataWithStrings.length; i += 1) {
         dataWithStrings[i].suspended = action.payload.users.usersRecords[i].suspended.toString();
         dataWithStrings[i].edit = (
@@ -70,6 +70,8 @@ const userReducer = (prevState = defaultState, action) => {
         userData: modifiedData,
       };
     }
+
+    // Storing which is being currently edited
     case 'updateUser': {
       let currUser = {};
       prevState.userData.forEach((user) => {
@@ -77,12 +79,12 @@ const userReducer = (prevState = defaultState, action) => {
           currUser = user;
         }
       });
-      console.log('Current user is: ', prevState.currentUser);
       return {
         ...prevState,
         currentUser: currUser,
       };
     }
+    // Editing the details of some user in the table
     case 'modifyUser': {
       const tempUsers = prevState.userData.slice();
       tempUsers.forEach((user, i) => {
@@ -96,6 +98,22 @@ const userReducer = (prevState = defaultState, action) => {
       return {
         ...prevState,
         userData: tempUsers,
+      };
+    }
+
+    // Storing the logged in admin users
+    case 'updateAdminUser': {
+      return {
+        ...prevState,
+        currentAdminUser: action.payload.user,
+      };
+    }
+
+    // When the logged user account details is to be edited
+    case 'copyAdminUser': {
+      return {
+        ...prevState,
+        currentUser: prevState.currentAdminUser,
       };
     }
     default: {

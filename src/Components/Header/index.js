@@ -1,6 +1,10 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './Header.css';
+import { connect } from 'react-redux';
+import { userSuspend, userDelete, updateUser, copyAdminUser } from '../../redux/actions/index';
 
 class Header extends React.Component {
   constructor(props) {
@@ -48,9 +52,11 @@ class Header extends React.Component {
             </button>
           </span>
           <span className={this.state.isDropdownOpen ? 'Header-drop-opened' : 'Header-drop-closed'}>
-            <div className="Header-dropdown-items">
-            Your Profile
-            </div>
+            <Link to="/adminMain/edit" >
+              <div className="Header-dropdown-items" onClick={() => { this.props.copyAdminUser(); }}>
+                Your Profile
+              </div>
+            </Link>
             <div className="Header-dropdown-line" />
             <div className="Header-dropdown-items" onClick={() => { this.doLogout(); }}>
             Logout
@@ -64,4 +70,14 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+Header.propTypes = {
+  copyAdminUser: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = dispatch => ({
+  copyAdminUser: () => {
+    dispatch(copyAdminUser());
+  },
+});
+
+export default connect(null, mapDispatchToProps)(Header);
