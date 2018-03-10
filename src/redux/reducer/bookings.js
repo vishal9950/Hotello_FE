@@ -41,6 +41,7 @@ const bookingReducer = (prevState = defaultState, action) => {
           // userData[i].suspended = 'true';
         }
       }
+      console.log('Modifiedd data is: ', modifiedData);
       return {
         ...prevState,
         bookingData: modifiedData,

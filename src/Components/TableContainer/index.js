@@ -22,6 +22,7 @@ class TableContainer extends React.Component {
         authorization: window.localStorage.getItem('token'),
       },
     }).then(response => response.json()).then((responseObj) => {
+      console.log('BOOKING DATA FROM DB IS: ', responseObj);
       this.props.getBookings(responseObj);
     });
   }
