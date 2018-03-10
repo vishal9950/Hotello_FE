@@ -49,14 +49,10 @@ class TableButton extends React.Component {
     cancelBooking=(bookingId) => {
       const confirmation = global.confirm(`Cancel booking ${bookingId}?`);
       if (confirmation === true) {
-        fetch('/cancelBooking', {
-          method: 'DELETE',
+        fetch(`/adminCancelBooking/${bookingId}`, {
           headers: {
             authorization: window.localStorage.getItem('token'),
           },
-          body: JSON.stringify({
-            bookingId,
-          }),
         }).then((res) => {
           if (res.status === 200) { this.props.bookingCancelled(bookingId); }
         });
@@ -80,7 +76,7 @@ class TableButton extends React.Component {
         imgClass = 'cancelIcon';
         for (let i = 0; i < this.props.bookingData.length; i += 1) {
           if (this.props.bookingData[i].bookingid === this.props.email) {
-            if (this.props.userData[i].status === 'cencelled') { imgClass = 'CancelDisabled'; }
+            if (this.props.userData[i].status === 'cancelled') { imgClass = 'CancelDisabled'; }
           }
         }
       }

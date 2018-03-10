@@ -36,14 +36,15 @@ const bookingReducer = (prevState = defaultState, action) => {
       };
     }
     case 'bookingCancel': {
-      const bookingData = prevState.bookingData.slice();
-      const modifiedData = [];
+      console.log('booking cancek fired');
+      const modifiedData = prevState.bookingData.slice();
       for (let i = 0; i < prevState.bookingData.length; i += 1) {
-        if (bookingData[i].bookingId !== action.payload.bookingId) {
-          modifiedData.push(bookingData[i]);
+        if (modifiedData[i].bookingid === action.payload.bookingId) {
+          modifiedData[i].status = 'cancelled';
           // userData[i].suspended = 'true';
         }
       }
+      console.log('Modifiedd data is: ', modifiedData);
       return {
         ...prevState,
         bookingData: modifiedData,
