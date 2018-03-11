@@ -11,8 +11,9 @@ class LoginHeader extends React.Component {
     );
   }
 }
-LoginHeader.defaultProps = {
-};
+// LoginHeader.defaultProps = {
+// };
 LoginHeader.propTypes = {
+  text: PropTypes.string.isRequired,
 };
 export default LoginHeader;

@@ -11,6 +11,7 @@ class TableButton extends React.Component {
     manageUser=(type, email) => {
       if (type === 'Suspend') this.suspendUser(email);
       if (type === 'Delete') this.deleteUser(email);
+      if (type === 'Cancel') this.cancelBooking(email);
       if (type === 'Edit') this.editUser(email);
       if (type === 'Cancel') this.cancelBooking(email);
     }
@@ -112,6 +113,9 @@ const mapDispatchToProps = dispatch => ({
   userDeleted: (email) => {
     dispatch(userDelete(email));
   },
+  bookingCancelled: (bookingId) => {
+    dispatch(bookingCancel(bookingId));
+  },
   updateUser: (email) => {
     dispatch(updateUser(email));
   },
@@ -132,6 +136,9 @@ TableButton.propTypes = {
   imgSrc: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
   userSuspended: PropTypes.func.isRequired,
+  userDeleted: PropTypes.func.isRequired,
+  disable: PropTypes.bool.isRequired,
+  bookingCancelled: PropTypes.func.isRequired,
   updateUser: PropTypes.func.isRequired,
   userDeleted: PropTypes.func.isRequired,
   disable: PropTypes.bool.isRequired,
