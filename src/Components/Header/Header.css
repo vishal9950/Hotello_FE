@@ -10,6 +10,7 @@
     left: 0px;
     top: 0px;
     box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.1);
+    font-family: 'Open Sans', sans-serif;
 }
 
 .Header-logo {
@@ -61,6 +62,7 @@
 
 .Header-dropdown-items {
     padding: 5px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .Header-dropdown-items:hover {

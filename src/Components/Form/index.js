@@ -54,28 +54,27 @@ class Form extends Component {
     console.log('FirstName is: ', this.state.firstName);
     const { formSubmissionState } = this.state;
     return (
-      <div>
-        <div className="main-content-agile">
-          <h2>Edit user details<i className="fa mail fa-envelope" /></h2>
-          <div className="sub-main-w3">
-            <form onSubmit={this.submitForm}>
-              <div className="field">
-                <i className="fa fa-user" />
-                <Field name="email" placeholder="Email" type="email" value={this.state.email} update={this.updateEmail} />
-              </div>
-              <div className="field">
-                <i className="fa fa-envelope" />
-                <Field name="firstName" placeholder="First Name" type="text" value={this.state.firstName} update={this.updateFirstName} />
-              </div>
-              <div className="field">
-                <i className="fa fa-phone" />
-                <Field name="lastName" placeholder="Last Name" type="text" value={this.state.lastName} update={this.updateLastName} />
-              </div>
-              <div className="field">
-                <Field name="phoneNumber" placeholder="Phone Number" type="text" pattern="[0-9]{10}" value={this.state.phoneNumber} update={this.updatePhone} />
-              </div>
-              <Button
-                onClick={() => {
+
+      <div className="form-body">
+        <h2>Edit user details</h2>
+        <form onSubmit={this.submitForm}>
+          <div className="field">
+            <i className="fa fa-user" />
+            <Field name="email" placeholder="Email" type="email" value={this.state.email} update={this.updateEmail} />
+          </div>
+          <div className="field">
+            <i className="fa fa-envelope" />
+            <Field name="firstName" placeholder="First Name" type="text" value={this.state.firstName} update={this.updateFirstName} />
+          </div>
+          <div className="field">
+            <i className="fa fa-phone" />
+            <Field name="lastName" placeholder="Last Name" type="text" value={this.state.lastName} update={this.updateLastName} />
+          </div>
+          <div className="field">
+            <Field name="phoneNumber" placeholder="Phone Number" type="text" pattern="[0-9]{10}" value={this.state.phoneNumber} update={this.updatePhone} />
+          </div>
+          <Button
+            onClick={() => {
                     fetch('/adminUpdateDetails', {
                       method: 'post',
                       headers: {
@@ -99,18 +98,18 @@ class Form extends Component {
                       this.props.modifyUser(obj);
                     });
                   }}
-                firstName={this.state.firstName}
-                lastName={this.state.lastName}
-                email={this.state.email}
-                phoneNumber={this.state.phoneNumber}
-              />
-            </form>
-            {formSubmissionState && (
-            <Redirect to="/adminMain/users" />
+            firstName={this.state.firstName}
+            lastName={this.state.lastName}
+            email={this.state.email}
+            phoneNumber={this.state.phoneNumber}
+          />
+        </form>
+        {formSubmissionState && (
+        <Redirect to="/adminMain/users" />
             )}
-          </div>
-        </div>
+
       </div>
+
 
     );
   }

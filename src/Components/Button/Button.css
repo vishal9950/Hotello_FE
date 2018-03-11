@@ -1,9 +1,9 @@
 .submitButton {
     color: #fff;
-    background: #ff4c4c;
+    background: #69B957;
     border: none;
     padding: .8em 3em;
-    border: 1px solid #ff4c4c;
+    border: 1px solid #69B957;
     width: 100%;
     /* margin-right: 60px; */
     outline: none;
@@ -15,9 +15,9 @@
     -o-transition: 0.5s all;
     -moz-transition: 0.5s all;
     -ms-transition: 0.5s all;
-	font-family: 'Montserrat', sans-serif;
+      font-family: 'Open Sans', sans-serif;
 }
 .submitButton:hover {
-    background: transparent;
-    border: 1px solid #fff;
+    background-color: #4a843b;
+    
 }
