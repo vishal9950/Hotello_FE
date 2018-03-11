@@ -76,6 +76,7 @@ class TableButton extends React.Component {
       }
 
       if (this.props.class === 'Edit') {
+        imgClass = 'EditIcon';
         return (
           <Link to="/adminMain/edit">
             <button
@@ -88,7 +89,7 @@ class TableButton extends React.Component {
       }
       if (this.props.class === 'Delete') imgClass = 'DeleteIcon';
       if (this.props.class === 'Cancel') {
-        imgClass = 'cancelIcon';
+        imgClass = 'CancelIcon';
         for (let i = 0; i < this.props.bookingData.length; i += 1) {
           if (this.props.bookingData[i].bookingid === this.props.email) {
             if (this.props.bookingData[i].status === 'cancelled') { imgClass = 'CancelDisabled'; }

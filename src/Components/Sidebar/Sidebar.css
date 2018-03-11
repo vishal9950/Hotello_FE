@@ -19,6 +19,7 @@
 .marginCorrection {
   margin-top:  0px;
   height: 100%;
+  font-family: 'Open Sans', sans-serif;
 }
 .linky:hover {
   background-color: #3b9b3b;
