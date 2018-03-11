@@ -2,6 +2,8 @@
     width: 100%;
     padding: 20px;
     outline: 0;
+    background-color: white;
+    border-style: none;
 }
 .sidy {
     margin-top: 50px;
@@ -12,4 +14,18 @@
     .sidy {
         height: 175px;
     }
+}
+
+.marginCorrection {
+  margin-top:  0px;
+  height: 100%;
+}
+.linky:hover {
+  background-color: #3b9b3b;
+  color: white;
+
+}
+
+.hamburger{
+  margin-top: 0px;
 }

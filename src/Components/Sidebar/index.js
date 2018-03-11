@@ -19,22 +19,22 @@ class Sidebar extends React.Component {
   render() {
     return (
       <div
-        className="sidy w3-sidebar w3-card w3-bar-block w3-collapse w3-animate-left"
+        className="sidy w3-sidebar w3-card w3-bar-block w3-collapse w3-animate-left marginCorrection"
         style={{ ...this.props.sidebarStyle }}
       >
-        <button className="w3-button w3-xlarge w3-hide-large" onClick={this.closeSideBar}>&#9776;</button>
+        <button className="w3-button w3-xlarge w3-hide-large hamburger" onClick={this.closeSideBar}>&#9776;</button>
         <Link to="/adminMain/users" >
           <button
-            className="linky w3-button w3-hover-black"
-            style={this.state.activeLink === 1 ? { backgroundColor: 'black', color: 'white' } : {}}
+            className="linky "
+            style={this.state.activeLink === 1 ? { backgroundColor: '#48bc48', color: 'white' } : {}}
             onClick={() => this.changeLinkStyle(1)}
           >Manage Users
           </button>
         </Link>
         <Link to="/adminMain/bookings" >
           <button
-            className="linky w3-button w3-hover-black"
-            style={this.state.activeLink === 2 ? { backgroundColor: 'black', color: 'white' } : {}}
+            className="linky "
+            style={this.state.activeLink === 2 ? { backgroundColor: '#48bc48', color: 'white' } : {}}
             onClick={() => this.changeLinkStyle(2)}
           >Manage Bookings
           </button>
