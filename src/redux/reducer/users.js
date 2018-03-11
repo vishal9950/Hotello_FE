@@ -30,6 +30,7 @@ const userReducer = (prevState = defaultState, action) => {
             email={dataWithStrings[i].email}
             imgSrc="/delete.png"
             alt="Delete"
+            disable={false}
           />);
         dataWithStrings[i].suspend = (
           <TableButton
@@ -37,6 +38,7 @@ const userReducer = (prevState = defaultState, action) => {
             email={dataWithStrings[i].email}
             imgSrc="/suspend2.png"
             alt="Suspend"
+            disable={false}
           />);
       }
       return {

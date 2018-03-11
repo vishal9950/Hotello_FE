@@ -22,6 +22,8 @@ export const userDelete = email => ({
     email,
   },
 });
+
+
 export const updateUser = email => ({
   type: 'updateUser',
   payload: {
@@ -44,4 +46,11 @@ export const updateAdminUser = user => ({
 });
 export const copyAdminUser = () => ({
   type: 'copyAdminUser',
+});
+
+export const bookingCancel = bookingId => ({
+  type: 'bookingCancel',
+  payload: {
+    bookingId,
+  },
 });
