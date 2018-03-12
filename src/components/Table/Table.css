@@ -150,7 +150,7 @@ tr:nth-child(even) {
 tr:nth-child(odd) {
     background-color: white;
 }
-@media (max-width:793px){
+@media (max-width:1208px){
   .table{
     display: block;
     overflow-x: auto;
