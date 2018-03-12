@@ -65,6 +65,10 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+.noUnderline {
+  text-decoration: none;
+}
+
 .Header-dropdown-items:hover {
     background-color: lightgray;
 }

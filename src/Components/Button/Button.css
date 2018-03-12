@@ -2,9 +2,12 @@
     color: #fff;
     background: #69B957;
     border: none;
-    padding: .8em 3em;
+    padding: .5em 3em;
     border: 1px solid #69B957;
-    width: 100%;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 2%;
+    margin-bottom: 2%;
     /* margin-right: 60px; */
     outline: none;
     font-size: 1em;
@@ -19,5 +22,5 @@
 }
 .submitButton:hover {
     background-color: #4a843b;
-    
+
 }

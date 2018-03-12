@@ -53,7 +53,7 @@ class Header extends React.Component {
             </button>
           </span>
           <span className={this.state.isDropdownOpen ? 'Header-drop-opened' : 'Header-drop-closed'}>
-            <Link to="/adminMain/edit" >
+            <Link to="/adminMain/edit" className="noUnderline">
               <div className="Header-dropdown-items" onClick={() => { this.props.copyAdminUser(); }}>
                 Your Profile
               </div>
