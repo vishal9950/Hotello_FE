@@ -55,8 +55,8 @@ class LoginBody extends React.Component {
           <input type="email" required value={this.state.username} className="login-field" placeholder="Email ID" onChange={event => this.setState({ username: event.target.value })} />
           <input type="password" required value={this.state.password} className="login-field" placeholder="Password" onChange={event => this.setState({ password: event.target.value })} />
 
-          <button type="button" className="login-field login-button" onClick={() => { this.login(); }}>
-          LOGIN
+          <button type="button" className="login-button" onClick={() => { this.login(); }}>
+          Login
           </button>
 
         </div>);

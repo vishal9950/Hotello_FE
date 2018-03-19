@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import './Header.css';
 import { connect } from 'react-redux';
 import { userSuspend, userDelete, updateUser, copyAdminUser } from '../../redux/actions/index';
+import logo from '../../images/group-26.svg';
 
 class Header extends React.Component {
   constructor(props) {
@@ -45,14 +46,14 @@ class Header extends React.Component {
     if (this.state.isLoggedIn) {
       return (
         <div className="Header-head" onClick={() => { this.closeDropDown(); }}>
-          <span className="Header-logo">Hotello</span>
+          <img src={logo} className="logoImg" />
           <span className="Header-user">
             <button className="Header-drop-usr-btn" onClick={() => { this.onClickHandler(); }}>
               <i id="Header-user-icon" className="material-icons">person</i>
             </button>
           </span>
           <span className={this.state.isDropdownOpen ? 'Header-drop-opened' : 'Header-drop-closed'}>
-            <Link to="/adminMain/edit" >
+            <Link to="/adminMain/edit" className="noUnderline">
               <div className="Header-dropdown-items" onClick={() => { this.props.copyAdminUser(); }}>
                 Your Profile
               </div>

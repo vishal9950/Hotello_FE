@@ -16,6 +16,7 @@ const bookingReducer = (prevState = defaultState, action) => {
       for (let i = 0; i < dataWithStrings.length; i += 1) {
         let cancelled = false;
         // console.log(dataWithStrings[i].status);
+        dataWithStrings[i].status = dataWithStrings[i].status.toLowerCase();
         if (dataWithStrings[i].status === 'cancelled') cancelled = true;
         dataWithStrings[i].cancel = (
           <TableButton
