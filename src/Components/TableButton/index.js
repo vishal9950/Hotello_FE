@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { userSuspend, userDelete, updateUser, bookingCancel } from '../../redux/actions/index';
+import { userSuspend, userDelete, updateUser, bookingCancel, userUnsuspend } from '../../redux/actions/index';
 // import { TablePagination } from 'react-pagination-table';
 // import './Table.css';
 
@@ -10,6 +10,7 @@ import { userSuspend, userDelete, updateUser, bookingCancel } from '../../redux/
 class TableButton extends React.Component {
     manageUser=(type, email) => {
       if (type === 'Suspend') this.suspendUser(email);
+      if (type === 'Unsuspend') this.unsuspendUser(email);
       if (type === 'Delete') this.deleteUser(email);
       if (type === 'Cancel') this.cancelBooking(email);
       if (type === 'Edit') this.editUser(email);
@@ -28,6 +29,23 @@ class TableButton extends React.Component {
           }),
         }).then((res) => {
           if (res.status === 200) { this.props.userSuspended(email); }
+        });
+      }
+    }
+    unsuspendUser=(email) => {
+      const confirmation = global.confirm(`Unsuspend ${email}?`);
+      if (confirmation === true) {
+        fetch('/unsuspendUser', {
+          method: 'PUT',
+          headers: {
+            authorization: window.localStorage.getItem('token'),
+          },
+          body: JSON.stringify({
+            email,
+          }),
+        }).then((res) => {
+          console.log('unsuspended');
+          if (res.status === 200) { this.props.userUnsuspended(email); }
         });
       }
     }
@@ -66,7 +84,7 @@ class TableButton extends React.Component {
     }
     render() {
       let imgClass = '';
-      if (this.props.class === 'Suspend') {
+      if (this.props.class === 'Suspend' || this.props.class === 'Unsuspend') {
         imgClass = 'SuspendIcon';
         for (let i = 0; i < this.props.userData.length; i += 1) {
           if (this.props.userData[i].email === this.props.email) {
@@ -111,6 +129,9 @@ const mapDispatchToProps = dispatch => ({
   userSuspended: (email) => {
     dispatch(userSuspend(email));
   },
+  userUnsuspended: (email) => {
+    dispatch(userUnsuspend(email));
+  },
   userDeleted: (email) => {
     dispatch(userDelete(email));
   },
@@ -120,9 +141,9 @@ const mapDispatchToProps = dispatch => ({
   updateUser: (email) => {
     dispatch(updateUser(email));
   },
-  bookingCancelled: (bookingId) => {
-    dispatch(bookingCancel(bookingId));
-  },
+  // bookingCancelled: (bookingId) => {
+  //   dispatch(bookingCancel(bookingId));
+  // },
 });
 const mapStateToProps = state => ({
   userData: state.users.userData,
@@ -137,11 +158,12 @@ TableButton.propTypes = {
   imgSrc: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
   userSuspended: PropTypes.func.isRequired,
+  userUnsuspended: PropTypes.func.isRequired,
   userDeleted: PropTypes.func.isRequired,
   disable: PropTypes.bool.isRequired,
   bookingCancelled: PropTypes.func.isRequired,
   updateUser: PropTypes.func.isRequired,
-  userDeleted: PropTypes.func.isRequired,
-  disable: PropTypes.bool.isRequired,
-  bookingCancelled: PropTypes.func.isRequired,
+  // userDeleted: PropTypes.func.isRequired,
+  // disable: PropTypes.bool.isRequired,
+  // bookingCancelled: PropTypes.func.isRequired,
 };

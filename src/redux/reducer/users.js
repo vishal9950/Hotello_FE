@@ -3,7 +3,7 @@ import TableButton from '../../Components/TableButton';
 
 const defaultState = {
   // authorization: '',
-  userHeader: ['First Name', 'Last Name', 'Email', 'Role', 'PhoneNumber', 'Suspended', 'Edit', 'Delete', 'Suspend'],
+  userHeader: ['First Name', 'Last Name', 'Email', 'Role', 'PhoneNumber', 'Status', 'Edit', 'Delete', 'Suspend'],
   userData: [],
   userColumns: 'firstName.lastName.email.role.phoneNumber.suspended.edit.delete.suspend',
   currentUser: {},
@@ -16,30 +16,46 @@ const userReducer = (prevState = defaultState, action) => {
     case 'getUser': {
       const dataWithStrings = action.payload.users.usersRecords;
       for (let i = 0; i < dataWithStrings.length; i += 1) {
-        dataWithStrings[i].suspended = action.payload.users.usersRecords[i].suspended.toString();
+        if (action.payload.users.usersRecords[i].suspended === true) {
+          dataWithStrings[i].suspended = <span className="RedSuspended"> Suspended</span>;
+        } else {
+          dataWithStrings[i].suspended = 'Active';
+        }
+        // dataWithStrings[i].suspended = action.payload.users.usersRecords[i].suspended.toString();
         dataWithStrings[i].edit = (
           <TableButton
             class="Edit"
             email={dataWithStrings[i].email}
-            imgSrc="/edit.png"
+            imgSrc="/editGreen.png"
             alt="Edit"
           />);
         dataWithStrings[i].delete = (
           <TableButton
             class="Delete"
             email={dataWithStrings[i].email}
-            imgSrc="/delete.png"
+            imgSrc="/redDelete.png"
             alt="Delete"
             disable={false}
           />);
-        dataWithStrings[i].suspend = (
-          <TableButton
-            class="Suspend"
-            email={dataWithStrings[i].email}
-            imgSrc="/suspend2.png"
-            alt="Suspend"
-            disable={false}
-          />);
+        if (dataWithStrings[i].suspended === 'Active') {
+          dataWithStrings[i].suspend = (
+            <TableButton
+              class="Suspend"
+              email={dataWithStrings[i].email}
+              imgSrc="/suspend.png"
+              alt="Suspend"
+              disable={false}
+            />);
+        } else {
+          dataWithStrings[i].suspend = (
+            <TableButton
+              class="Unsuspend"
+              email={dataWithStrings[i].email}
+              imgSrc="/suspendGray.png"
+              alt="Unsuspend"
+              disable={false}
+            />);
+        }
       }
       return {
         ...prevState,
@@ -50,7 +66,19 @@ const userReducer = (prevState = defaultState, action) => {
       const userData = prevState.userData.slice();
       for (let i = 0; i < prevState.userData.length; i += 1) {
         if (userData[i].email === action.payload.email) {
-          userData[i].suspended = 'true';
+          userData[i].suspended = <span className="RedSuspended"> Suspended</span>;
+        }
+      }
+      return {
+        ...prevState,
+        userData,
+      };
+    }
+    case 'userUnsuspend': {
+      const userData = prevState.userData.slice();
+      for (let i = 0; i < prevState.userData.length; i += 1) {
+        if (userData[i].email === action.payload.email) {
+          userData[i].suspended = 'Active';
         }
       }
       return {

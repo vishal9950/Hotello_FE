@@ -16,6 +16,12 @@ export const userSuspend = email => ({
     email,
   },
 });
+export const userUnsuspend = email => ({
+  type: 'userUnsuspend',
+  payload: {
+    email,
+  },
+});
 export const userDelete = email => ({
   type: 'userDelete',
   payload: {
