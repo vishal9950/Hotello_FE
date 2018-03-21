@@ -1,5 +1,6 @@
 .Main{
-    margin-left: 250px;
-    margin-top: 50px;
-    padding-right: 10px;
+    margin:5%;
+    display: flex;
+    flex-grow:1;
+    /* padding-right: 10px; */
 }

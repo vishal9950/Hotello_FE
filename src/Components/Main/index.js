@@ -7,7 +7,7 @@ function Main(props) {
   return (
 
     <div className="w3-main Main" >
-      <TableContainer />
+      <TableContainer tableType={props.tableType} />
     </div>
   );
 }

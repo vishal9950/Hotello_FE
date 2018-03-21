@@ -1,6 +1,7 @@
 .active{
     font-weight: bold;
-    background-color: white;
+    background-color: #69B957;
+    color: white;
 }
 .pagination-status li{
     display:inline;
@@ -8,11 +9,11 @@
     padding:7px;
     padding-left: 10px;
     padding-right: 10px;
-    margin-top: 20px;
-    background-color: #69B957;
-    color:white;
+    /* margin-top: 20px; */
+    /* background-color: #69B957; */
+    /* color:white; */
     font-weight: lighter;
-    box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.2)
+    /* box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.2) */
 }
 .pagination-status{
     padding-left:0;
@@ -20,7 +21,7 @@
     overflow: hidden;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     width: 100%;
     margin-top: 0px;
@@ -33,15 +34,18 @@
     border-collapse: collapse;
     border-spacing: 0;
     border-style: none;
-    width:100%;
+    
     overflow: scroll;
     font-family: 'Open Sans', sans-serif;
+    box-shadow: 0px 3px 10px 1px rgba(0, 0, 0, 0.2);
+    table-layout: auto;
+    width:100%;
+    /* width: 180px;  */
 }
 .table-header{
-    color: white;
-     background-color:black;
-}
+    background-color: #dddddd;
 
+}
 
 td{
     /* border:1px solid black; */
@@ -53,18 +57,24 @@ td{
     vertical-align: middle;
 
 }
+.BookingTable{
+    display: flex;
+    flex-grow:1;
+}
 
-
-
+.UsersTable{
+    display: flex;
+    flex-grow:1;
+}
 
 .react-pagination-table{
     overflow-x:scroll;
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-content: center;
-    box-shadow: 0px 3px 10px 1px rgba(0, 0, 0, 0.2);
-    background-color: #69B957;
+    width:100%;
+    /* background-color: #69B957; */
     /* min-height: 300px; */
     /* height: 55vh; */
 
@@ -72,10 +82,12 @@ td{
 
 th{
     text-align: center;
-    background-color:#69B957;
-    color:white;
+    background-color: #dddddd;
+    color:black;
     height: 40px;
     vertical-align: middle;
+    padding: 15px;
+    font-weight: bold;
 }
 tr{
   width: 100%;
@@ -151,11 +163,11 @@ tr:nth-child(odd) {
     background-color: white;
 }
 @media (max-width:1208px){
-  .table{
-    display: block;
+  /* .table{
+    display: flex;
     overflow-x: auto;
     white-space: nowrap;
-  }
+  } */
 }
 @media (max-width:768px){
 

@@ -12,6 +12,7 @@ class LoginBody extends React.Component {
       username: '',
       password: '',
       isLoggedIn: false,
+      invalidCredentials: false,
     };
   }
   login=() => {
@@ -29,6 +30,7 @@ class LoginBody extends React.Component {
         this.setState({
           username: '',
           password: '',
+          invalidCredentials: true,
         });
       } else {
         window.localStorage.setItem('token', token);
@@ -44,6 +46,7 @@ class LoginBody extends React.Component {
           username: '',
           password: '',
           isLoggedIn: true,
+          invalidCredentials: false,
         });
       }
     });
@@ -52,9 +55,10 @@ class LoginBody extends React.Component {
     if (!this.state.isLoggedIn) {
       return (
         <div className="login-body" >
+        Sign In
           <input type="email" required value={this.state.username} className="login-field" placeholder="Email ID" onChange={event => this.setState({ username: event.target.value })} />
           <input type="password" required value={this.state.password} className="login-field" placeholder="Password" onChange={event => this.setState({ password: event.target.value })} />
-
+          <div className={this.state.invalidCredentials === true ? 'Invalid' : 'Valid'}> Invalid Credentials!</div>
           <button type="button" className="login-button" onClick={() => { this.login(); }}>
           Login
           </button>

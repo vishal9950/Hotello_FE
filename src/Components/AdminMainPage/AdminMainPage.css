@@ -2,4 +2,14 @@
     padding:0;
     margin:0;
     font-family: 'Open Sans', sans-serif;
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.admin-body{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+   
 }

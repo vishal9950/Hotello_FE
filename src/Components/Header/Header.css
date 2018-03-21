@@ -4,24 +4,29 @@
     justify-content: space-between;
     background-color: white;
     color: white;
-    position: fixed;
-    height: 70px;
+    /* position: fixed; */
+    height: 80px;
     width: 100%;
-    left: 0px;
-    top: 0px;
+    /* left: 0px; */
+    /* top: 0px; */
     box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.1);
     font-family: 'Open Sans', sans-serif;
 }
 
 .Header-logo {
-    font-size: 50px;
+    font-size: 60px;
     font-family: 'Satisfy', cursive;
 }
 
 .Header-user {
-    position: absolute;
-    right: 30px;
-    top: 30%;
+    /* position: absolute; */
+    /* right: 30px;
+    top: 30%; */
+    display: flex;
+    align-items: center;
+    padding-right:2%;
+    width:12%;
+    /* justify-content: space-between; */
 }
 
 .Header-drop-opened {
@@ -49,6 +54,8 @@
 .Header-drop-usr-btn {
     background-color: transparent;
     border: 0px;
+    align-items: center;
+    align-items: center;
 }
 
 .Header-drop-usr-btn:focus {
@@ -79,4 +86,15 @@
 
 .logoImg{
   padding:10px 10px 10px 20px;
+  color:black;
+}
+.HiUser{
+    color:black;
+    font-family: "Open Sans";
+    padding:13%;
+    /* flex-grow:1;
+    display: flex; */
+    width:100%;
+    line-height: 1.5;
+    box-sizing: border-box;
 }

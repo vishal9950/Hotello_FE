@@ -46,12 +46,13 @@ class Header extends React.Component {
     if (this.state.isLoggedIn) {
       return (
         <div className="Header-head" onClick={() => { this.closeDropDown(); }}>
-          <img src={logo} className="logoImg" />
-          <span className="Header-user">
-            <button className="Header-drop-usr-btn" onClick={() => { this.onClickHandler(); }}>
+          <img src={logo} className="logoImg" alt="" />
+          <div className="Header-user">
+            <span className="HiUser"><p>Hi User!</p></span>
+            <div className="Header-drop-usr-btn" onClick={() => { this.onClickHandler(); }}>
               <i id="Header-user-icon" className="material-icons">person</i>
-            </button>
-          </span>
+            </div>
+          </div>
           <span className={this.state.isDropdownOpen ? 'Header-drop-opened' : 'Header-drop-closed'}>
             <Link to="/adminMain/edit" className="noUnderline">
               <div className="Header-dropdown-items" onClick={() => { this.props.copyAdminUser(); }}>
