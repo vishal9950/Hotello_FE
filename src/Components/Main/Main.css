@@ -2,5 +2,6 @@
     margin:5%;
     display: flex;
     flex-grow:1;
+    /* overflow-x: scroll; */
     /* padding-right: 10px; */
 }

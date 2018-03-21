@@ -60,15 +60,17 @@ td{
 .BookingTable{
     display: flex;
     flex-grow:1;
+    overflow-x: scroll;
 }
 
 .UsersTable{
     display: flex;
     flex-grow:1;
+    overflow-x: scroll;
 }
 
 .react-pagination-table{
-    overflow-x:scroll;
+    /* overflow-x:scroll; */
     display:flex;
     flex-direction: column;
     justify-content: space-between;
@@ -88,6 +90,7 @@ th{
     vertical-align: middle;
     padding: 15px;
     font-weight: bold;
+    font-size: 16px;
 }
 tr{
   width: 100%;
@@ -102,6 +105,7 @@ tr{
 .Delete{
     border:0;
     background-color:inherit;
+    outline:none;
 }
 
 .DeleteIcon{
@@ -113,6 +117,7 @@ tr{
 .Suspend{
     border:0;
     background-color: inherit;
+    outline:none;
 }
 .SuspendIcon{
     height:50%;
@@ -135,12 +140,15 @@ tr{
 .Cancel{
     border:0;
     background-color: inherit;
-      padding-top: 20px;
+    outline:none;
+    
+      /* padding-top: 20px; */
 }
 
 .Edit{
   background-color: inherit;
   border:0;
+  outline:none;
 }
 
 .EditIcon{
@@ -155,6 +163,7 @@ tr{
     width:70%;
     min-height: 20px;
     min-width: 20px;
+    outline:none;
 }
 tr:nth-child(even) {
     background-color: #dddddd;
@@ -172,7 +181,7 @@ tr:nth-child(odd) {
 @media (max-width:768px){
 
     .react-pagination-table{
-      font-size: 12px;
+      /* font-size: 12px; */
     }
     .clearfix{
       width: 100%;

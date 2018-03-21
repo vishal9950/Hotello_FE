@@ -2,16 +2,19 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding:1%;
+    border-top: 1px solid black;
+    opacity:0.63;
 }
 .footerItem1 {
     display: flex;
     flex-direction: column;
 }
-.whiteLine {
+/* .whiteLine {
     border-bottom: 1px solid black;
     height: 1px;
     margin-bottom: 2%;
-}
+} */
 .footerItem1LinksContainer {
     display: flex;
     margin-bottom: 3%;
@@ -27,7 +30,7 @@
     text-align: left;
     color: black;
     text-decoration: none;
-    margin-right:10%;
+    margin-right:6%;
 }
 .footerItem2 {
     display: flex;
