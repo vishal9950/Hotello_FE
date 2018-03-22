@@ -14,7 +14,7 @@ class AdminMainPage extends React.Component {
     this.state = {
       tableType: 'users',
       // sidebarStyle: 'block',
-      isLoggedIn: !(window.localStorage.getItem('token') === 'null'),
+      isLoggedIn: !(window.localStorage.getItem('token') === null),
     };
   }
 changeTableType=(type) => {
@@ -28,7 +28,7 @@ changeTableType=(type) => {
   //   });
   // }
 render() {
-  // console.log('admin:::::::;', window.localStorage.getItem('token'), this.state.isLoggedIn);
+  console.log('admin:::::::;', window.localStorage.getItem('token'), this.state.isLoggedIn);
   if (this.state.isLoggedIn) {
     return (
       <div className="admin-main-page">
