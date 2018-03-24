@@ -61,4 +61,5 @@ Sidebar.propTypes = {
   changeSidebarStyle: PropTypes.func.isRequired,
   // sidebarStyle: PropTypes.objectOf.isRequired,
   changeTableType: PropTypes.func.isRequired,
+  link: PropTypes.number.isRequired,
 };

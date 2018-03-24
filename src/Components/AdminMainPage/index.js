@@ -1,6 +1,8 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { updateAdminUser } from '../../redux/actions';
 import Header from '../Header';
 import Main from '../Main';
 import Sidebar from '../Sidebar';
@@ -18,6 +20,18 @@ class AdminMainPage extends React.Component {
       isLoggedIn: !(window.localStorage.getItem('token') === null),
     };
   }
+  componentWillMount() {
+    // window.localStorage.getItem('token', token);
+    fetch('/adminDetails', {
+      method: 'GET',
+      headers: {
+        authorization: window.localStorage.getItem('token'),
+      },
+    }).then(user => user.json()).then((data) => {
+      console.log('admin data', data);
+      this.props.updateAdminUser(data);
+    });
+  }
 changeTableType=(type) => {
   this.setState({
     tableType: type,
@@ -28,6 +42,7 @@ changeSelectedLink=(value) => {
     link: value,
   });
 }
+
   // changeSidebarStyle = (newStyle) => {
   //   this.setState({
   //     sidebarStyle: newStyle,
@@ -52,8 +67,14 @@ render() {
   return <Redirect to="/login" />;
 }
 }
-AdminMainPage.defaultProps = {
-};
+const mapDispatchToProps = dispatch => ({
+  updateAdminUser: (data) => {
+    dispatch(updateAdminUser(data));
+  },
+
+});
+
 AdminMainPage.propTypes = {
+  updateAdminUser: PropTypes.func.isRequired,
 };
-export default AdminMainPage;
+export default connect(null, mapDispatchToProps)(AdminMainPage);
