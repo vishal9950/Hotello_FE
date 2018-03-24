@@ -24,7 +24,7 @@ class TableButton extends React.Component {
       }
       // if (type === 'Unsuspend') this.unsuspendUser(email);
       if (type === 'Delete') this.deleteUser(email);
-      if (type === 'Cancel') this.cancelBooking(email);
+      // if (type === 'Cancel') this.cancelBooking(email);
       if (type === 'Edit') this.editUser(email);
       if (type === 'Cancel') this.cancelBooking(email);
     }
@@ -85,6 +85,7 @@ class TableButton extends React.Component {
     }
     cancelBooking=(bookingId) => {
       const confirmation = global.confirm(`Cancel booking ${bookingId}?`);
+      console.log('88 ', confirmation);
       if (confirmation === true) {
         fetch(`/adminCancelBooking/${bookingId}`, {
           headers: {

@@ -25,9 +25,10 @@
     top: 30%; */
     display: flex;
     align-items: center;
-    padding-right:2%;
+    padding:1%;
+    box-sizing: border-box;
     /* width:150px; */
-    /* justify-content: space-between; */
+    justify-content: space-between;
 }
 
 .Header-drop-opened {
@@ -59,8 +60,11 @@
     border: 0px;
     align-items: center;
     align-items: center;
+    /* padding-left:1%; */
 }
-
+.Useless{
+    color:"white";
+}
 .Header-drop-usr-btn:focus {
     outline: 0;
 }
@@ -95,10 +99,10 @@
 .HiUser{
     color:black;
     font-family: "Open Sans";
-    padding:13%;
-    /* flex-grow:1;
-    display: flex; */
+    /* margin-right:5%; */
+    /* flex-grow:1; */
+    display: flex;
     width:100%;
-    line-height: 1.5;
+    /* line-height: 1.5; */
     box-sizing: border-box;
 }

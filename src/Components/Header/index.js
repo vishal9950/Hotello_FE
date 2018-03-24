@@ -48,7 +48,8 @@ class Header extends React.Component {
         <div className="Header-head" onClick={() => { this.closeDropDown(); }}>
           <img src={logo} className="logoImg" alt="" />
           <div className="Header-user">
-            <span className="HiUser"><p>Hi {this.props.user}!</p></span>
+            <div className="HiUser"><p>Hi {this.props.user}!</p></div>
+            <div className="Useless">ab</div>
             <div className="Header-drop-usr-btn" onClick={() => { this.onClickHandler(); }}>
               <i id="Header-user-icon" className="material-icons">person</i>
             </div>
