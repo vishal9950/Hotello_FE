@@ -36,13 +36,13 @@ class TableContainer extends React.Component {
             exact
             path="/adminMain/users"
             render={() => (
-              <UsersTable />
+              <UsersTable changeSelectedLink={value => this.props.changeSelectedLink(value)} />
             )}
           />
           <Route
             path="/adminMain/bookings"
             render={() => (
-              <BookingTable />
+              <BookingTable changeSelectedLink={value => this.props.changeSelectedLink(value)} />
             )}
           />
           <Route

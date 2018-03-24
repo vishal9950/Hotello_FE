@@ -1,7 +1,6 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import './Header.css';
 import { connect } from 'react-redux';
 import { userSuspend, userDelete, updateUser, copyAdminUser } from '../../redux/actions/index';
@@ -43,12 +42,13 @@ class Header extends React.Component {
     });
   }
   render() {
+    console.log('this.props.user', this.props.user);
     if (this.state.isLoggedIn) {
       return (
         <div className="Header-head" onClick={() => { this.closeDropDown(); }}>
           <img src={logo} className="logoImg" alt="" />
           <div className="Header-user">
-            <span className="HiUser"><p>Hi User!</p></span>
+            <span className="HiUser"><p>Hi {this.props.user}!</p></span>
             <div className="Header-drop-usr-btn" onClick={() => { this.onClickHandler(); }}>
               <i id="Header-user-icon" className="material-icons">person</i>
             </div>
@@ -74,12 +74,15 @@ class Header extends React.Component {
 
 Header.propTypes = {
   copyAdminUser: PropTypes.func.isRequired,
+  user: PropTypes.string.isRequired,
 };
-
+const mapStateToProps = state => ({
+  user: state.users.currentAdminUser.firstName,
+});
 const mapDispatchToProps = dispatch => ({
   copyAdminUser: () => {
     dispatch(copyAdminUser());
   },
 });
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

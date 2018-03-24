@@ -13,6 +13,7 @@ class AdminMainPage extends React.Component {
     super(props);
     this.state = {
       tableType: 'users',
+      link: 1,
       // sidebarStyle: 'block',
       isLoggedIn: !(window.localStorage.getItem('token') === null),
     };
@@ -20,6 +21,11 @@ class AdminMainPage extends React.Component {
 changeTableType=(type) => {
   this.setState({
     tableType: type,
+  });
+}
+changeSelectedLink=(value) => {
+  this.setState({
+    link: value,
   });
 }
   // changeSidebarStyle = (newStyle) => {
@@ -34,9 +40,9 @@ render() {
       <div className="admin-main-page">
         <Header />
         <div className="admin-body">
-          <Sidebar changeTableType={type => this.changeTableType(type)} />
+          <Sidebar changeTableType={type => this.changeTableType(type)} link={this.state.link} />
           {/* <ActionBar changeSidebarStyle={this.changeSidebarStyle} /> */}
-          <Main tableType={this.state.tableType} />
+          <Main tableType={this.state.tableType} changeSelectedLink={value => this.changeSelectedLink(value)} />
         </div>
         <Footer />
       </div>

@@ -34,12 +34,13 @@ class LoginBody extends React.Component {
         });
       } else {
         window.localStorage.setItem('token', token);
-        fetch('/userUpdateDetails', {
+        fetch('/adminDetails', {
           method: 'GET',
           headers: {
             authorization: window.localStorage.getItem('token'),
           },
         }).then(user => user.json()).then((data) => {
+          console.log('admin data', data);
           this.props.updateAdminUser(data);
         });
         this.setState({
@@ -75,8 +76,8 @@ LoginBody.propTypes = {
   updateAdminUser: PropTypes.func.isRequired,
 };
 const mapDispatchToProps = dispatch => ({
-  updateAdminUser: (email) => {
-    dispatch(updateAdminUser(email));
+  updateAdminUser: (data) => {
+    dispatch(updateAdminUser(data));
   },
 
 });

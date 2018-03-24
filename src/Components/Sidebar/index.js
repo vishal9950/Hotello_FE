@@ -17,11 +17,21 @@ class Sidebar extends React.Component {
     });
   }
   render() {
+    // if (this.state.location.pathname === 'http://localhost:3001/adminMain/users' && this.state.activeLink === 2) {
+    //   this.changeLinkStyle(1);
+    // }
+    // if (this.state.location.pathname === 'http://localhost:3001/adminMain/bookings' && this.state.activeLink === 1) {
+    //   this.changeLinkStyle(2);
+    // }
+
+    if (this.props.link !== this.state.activeLink) {
+      this.setState({
+        activeLink: this.props.link,
+      });
+    }
     return (
       <div
         className="navbar"
-        // className="sidy w3-sidebar w3-card w3-bar-block w3-collapse w3-animate-left marginCorrection"
-        // style={{ ...this.props.sidebarStyle }}
       >
         {/* <button className="w3-button w3-xlarge w3-hide-large hamburger" onClick={this.closeSideBar}>&#9776;</button> */}
         <Link className="NavbarLink" to="/adminMain/users" >
@@ -44,6 +54,7 @@ class Sidebar extends React.Component {
     );
   }
 }
+
 
 export default Sidebar;
 Sidebar.propTypes = {

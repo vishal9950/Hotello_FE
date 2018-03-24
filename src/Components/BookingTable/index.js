@@ -16,6 +16,7 @@ class BookingTable extends React.Component {
     };
   }
   componentWillMount() {
+    this.props.changeSelectedLink(2);
     // console.log(window.localStorage.getItem('token'));
     // if (this.props.type === 'users' && this.state.type !== 'users') {
     //   fetch('/viewRegisteredUsers', {

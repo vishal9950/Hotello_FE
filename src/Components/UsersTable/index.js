@@ -15,6 +15,7 @@ class UsersTable extends React.Component {
     };
   }
   componentWillMount() {
+    this.props.changeSelectedLink(1);
     // console.log(window.localStorage.getItem('token'));
     // if (this.props.type === 'users' && this.state.type !== 'users') {
     fetch('/viewRegisteredUsers', {

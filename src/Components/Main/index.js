@@ -7,7 +7,7 @@ function Main(props) {
   return (
 
     <div className="w3-main Main" >
-      <TableContainer tableType={props.tableType} />
+      <TableContainer tableType={props.tableType} changeSelectedLink={value => props.changeSelectedLink(value)} />
     </div>
   );
 }
